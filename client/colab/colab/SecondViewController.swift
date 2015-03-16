@@ -1,6 +1,6 @@
 //
 //  SecondViewController.swift
-//  colab
+//  Colab
 //
 //  Created by Andrew Gold on 3/16/15.
 //  Copyright (c) 2015 goldreddyfishkin. All rights reserved.

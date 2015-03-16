@@ -1,6 +1,6 @@
 //
-//  colabTests.swift
-//  colabTests
+//  ColabTests.swift
+//  ColabTests
 //
 //  Created by Andrew Gold on 3/16/15.
 //  Copyright (c) 2015 goldreddyfishkin. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class colabTests: XCTestCase {
+class ColabTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
