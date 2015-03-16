@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F4CDBF2B-F6E7-424C-B140-905830C5DCA1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Colab</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1610B0304BF2C51B1901ED3221800F26F7F5EBE1</key>
+		<string>https://github.com/AndrewGold/colab-client.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Colab.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1610B0304BF2C51B1901ED3221800F26F7F5EBE1</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/AndrewGold/colab-client.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1610B0304BF2C51B1901ED3221800F26F7F5EBE1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1610B0304BF2C51B1901ED3221800F26F7F5EBE1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Colab</string>
+		</dict>
+	</array>
+</dict>
+</plist>
