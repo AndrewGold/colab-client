@@ -24,6 +24,7 @@
 		D5752F071AB7681C007E5926 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752EFF1AB7681C007E5926 /* SearchTableViewController.swift */; };
 		D5752F081AB7681C007E5926 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752F001AB7681C007E5926 /* SignUpController.swift */; };
 		D5752F091AB7681C007E5926 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752F011AB7681C007E5926 /* User.swift */; };
+		D5F15DBB1ADDD9E30062F69D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F15DBA1ADDD9E30062F69D /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		D5752F001AB7681C007E5926 /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		D5752F011AB7681C007E5926 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D5752F0B1AB768A2007E5926 /* Co-Llab-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Co-Llab-Bridging-Header.h"; sourceTree = "<group>"; };
+		D5F15DBA1ADDD9E30062F69D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				D5752EFF1AB7681C007E5926 /* SearchTableViewController.swift */,
 				D3C7C47A1AB7637D00693A0F /* FirstViewController.swift */,
 				D3C7C47C1AB7637D00693A0F /* SecondViewController.swift */,
+				D5F15DBA1ADDD9E30062F69D /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				D3C7C47D1AB7637D00693A0F /* SecondViewController.swift in Sources */,
 				D3C7C4791AB7637D00693A0F /* AppDelegate.swift in Sources */,
 				D3C7C47B1AB7637D00693A0F /* FirstViewController.swift in Sources */,
+				D5F15DBB1ADDD9E30062F69D /* ProfileViewController.swift in Sources */,
 				D5752F021AB7681C007E5926 /* Collections.swift in Sources */,
 				D5752F061AB7681C007E5926 /* SearchHelper.swift in Sources */,
 				D5752F091AB7681C007E5926 /* User.swift in Sources */,
@@ -515,6 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Colab/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "./Colab/Co-Llab-Bridging-Header.h";
@@ -527,6 +532,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Colab/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "./Colab/Co-Llab-Bridging-Header.h";

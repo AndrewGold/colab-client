@@ -24,14 +24,7 @@ class SearchHelper: NSObject {
         let predicate:NSPredicate! = NSPredicate(format: "name contains[c] %@", searchTerm)
        
         
-        return NSArray(array: users).filteredArrayUsingPredicate(predicate) as AnyObject as [User]
-        
-//        for user in users {
-//            if NSString(string: user._name).containsString(searchTerm) {
-//                rtrnUsers.append(user)
-//            }
-//        }
-//        
-//        return rtrnUsers
+        return NSArray(array: users).filteredArrayUsingPredicate(predicate) as AnyObject as! [User]
+ 
     }
 }

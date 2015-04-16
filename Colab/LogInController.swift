@@ -20,7 +20,7 @@ class LogInController: NSObject {
     
         manager.responseSerializer = AFJSONResponseSerializer();
         
-        manager.responseSerializer.acceptableContentTypes = NSSet(object: "text/html");
+        manager.responseSerializer.acceptableContentTypes = NSSet(object: "text/html") as Set<NSObject>;
         
         
         userDic["email"] = email;

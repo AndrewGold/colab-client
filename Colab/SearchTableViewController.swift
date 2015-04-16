@@ -14,7 +14,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var _tableView: UITableView!
     
     
-    private var searchHelper = SearchHelper()
+    private let searchHelper = SearchHelper()
     
     var currentDisplayUsers:[User] = []
     
@@ -51,7 +51,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
 
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as CustomUserTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as! CustomUserTableViewCell
         
         let curUser = currentDisplayUsers[indexPath.item]
         
@@ -99,15 +99,32 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     */
 
-    /*
+    // MARK: - Table Selection
+    // Return false if you do not wish to highlight cells
+    // TODO: turn off highlighting when done testing
+    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        print( (tableView.cellForRowAtIndexPath(indexPath) as! CustomUserTableViewCell)._userName.text! )
+        performSegueWithIdentifier("showProfileSegue", sender: tableView.cellForRowAtIndexPath(indexPath))
+        // TODO: Turn to false when done testing
+        return false;
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "showProfileSegue" {
+            if let destination = segue.destinationViewController as? ProfileViewController {
+                let cell = sender as! CustomUserTableViewCell
+                destination.loadUserFromCell(cell)
+            }
+        }
     }
-    */
+    
     
     
     // MARK: - Search Bar Delegate
