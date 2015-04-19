@@ -30,7 +30,7 @@ class LogInController: NSObject {
         manager.POST(URL,
             parameters: userDic,
             success: { (operation, obj) in
-                print(obj);
+                print(obj)
             }, failure: { (operation, err) in
                 print(err)
         });
