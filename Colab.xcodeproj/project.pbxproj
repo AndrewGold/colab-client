@@ -15,12 +15,15 @@
 		D3C7C4851AB7637D00693A0F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C7C4831AB7637D00693A0F /* LaunchScreen.xib */; };
 		D3C7C4911AB7637E00693A0F /* ColabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7C4901AB7637E00693A0F /* ColabTests.swift */; };
 		D522EE211AE41F7500F13E45 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D522EE201AE41F7500F13E45 /* UserLoginViewController.swift */; };
+		D522EE261AE4312500F13E45 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D522EE231AE4312500F13E45 /* Project.swift */; };
+		D522EE271AE4312500F13E45 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = D522EE241AE4312500F13E45 /* Skill.swift */; };
+		D522EE281AE4312500F13E45 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D522EE251AE4312500F13E45 /* User.swift */; };
+		D522EE2A1AE4313800F13E45 /* QueryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D522EE291AE4313800F13E45 /* QueryManager.swift */; };
 		D5752F021AB7681C007E5926 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752EFA1AB7681C007E5926 /* Collections.swift */; };
 		D5752F031AB7681C007E5926 /* CustomUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752EFB1AB7681C007E5926 /* CustomUserTableViewCell.swift */; };
 		D5752F051AB7681C007E5926 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = D5752EFD1AB7681C007E5926 /* placeholder.png */; };
 		D5752F061AB7681C007E5926 /* SearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752EFE1AB7681C007E5926 /* SearchHelper.swift */; };
 		D5752F071AB7681C007E5926 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752EFF1AB7681C007E5926 /* SearchTableViewController.swift */; };
-		D5752F091AB7681C007E5926 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752F011AB7681C007E5926 /* User.swift */; };
 		D5F15DBB1ADDD9E30062F69D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F15DBA1ADDD9E30062F69D /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,12 +54,15 @@
 		D3C7C48F1AB7637E00693A0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3C7C4901AB7637E00693A0F /* ColabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColabTests.swift; sourceTree = "<group>"; };
 		D522EE201AE41F7500F13E45 /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
+		D522EE231AE4312500F13E45 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		D522EE241AE4312500F13E45 /* Skill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		D522EE251AE4312500F13E45 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D522EE291AE4313800F13E45 /* QueryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryManager.swift; sourceTree = "<group>"; };
 		D5752EFA1AB7681C007E5926 /* Collections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		D5752EFB1AB7681C007E5926 /* CustomUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUserTableViewCell.swift; sourceTree = "<group>"; };
 		D5752EFD1AB7681C007E5926 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		D5752EFE1AB7681C007E5926 /* SearchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHelper.swift; sourceTree = "<group>"; };
 		D5752EFF1AB7681C007E5926 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
-		D5752F011AB7681C007E5926 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D5752F0B1AB768A2007E5926 /* Co-Llab-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Co-Llab-Bridging-Header.h"; sourceTree = "<group>"; };
 		D5F15DBA1ADDD9E30062F69D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +130,7 @@
 		D3C7C4751AB7637D00693A0F /* Colab */ = {
 			isa = PBXGroup;
 			children = (
+				D522EE221AE430D600F13E45 /* Models */,
 				D5752F101AB76A59007E5926 /* Interface */,
 				D5752F0F1AB76A44007E5926 /* Application Classes */,
 				D5752F0D1AB76A0D007E5926 /* Search Classes */,
@@ -161,6 +168,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D522EE221AE430D600F13E45 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D522EE231AE4312500F13E45 /* Project.swift */,
+				D522EE241AE4312500F13E45 /* Skill.swift */,
+				D522EE251AE4312500F13E45 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		D5752F0C1AB769FC007E5926 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,8 +200,8 @@
 		D5752F0F1AB76A44007E5926 /* Application Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D522EE291AE4313800F13E45 /* QueryManager.swift */,
 				D5752EFA1AB7681C007E5926 /* Collections.swift */,
-				D5752F011AB7681C007E5926 /* User.swift */,
 				D3C7C4781AB7637D00693A0F /* AppDelegate.swift */,
 			);
 			name = "Application Classes";
@@ -370,11 +387,14 @@
 				D5752F031AB7681C007E5926 /* CustomUserTableViewCell.swift in Sources */,
 				D522EE211AE41F7500F13E45 /* UserLoginViewController.swift in Sources */,
 				D3C7C4791AB7637D00693A0F /* AppDelegate.swift in Sources */,
+				D522EE271AE4312500F13E45 /* Skill.swift in Sources */,
 				D5F15DBB1ADDD9E30062F69D /* ProfileViewController.swift in Sources */,
 				D5752F021AB7681C007E5926 /* Collections.swift in Sources */,
 				D5752F061AB7681C007E5926 /* SearchHelper.swift in Sources */,
-				D5752F091AB7681C007E5926 /* User.swift in Sources */,
 				D5752F071AB7681C007E5926 /* SearchTableViewController.swift in Sources */,
+				D522EE281AE4312500F13E45 /* User.swift in Sources */,
+				D522EE2A1AE4313800F13E45 /* QueryManager.swift in Sources */,
+				D522EE261AE4312500F13E45 /* Project.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

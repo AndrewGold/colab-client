@@ -55,7 +55,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         let curUser = currentDisplayUsers[indexPath.item]
         
-        cell.setUpCell("placeholder", name: curUser._name, tagLine: curUser._tagLine, score: curUser._score, skill1: curUser._skill1, skill2: curUser._skill2, skill3: curUser._skill3)
+        // cell.setUpCell("placeholder", name: curUser._firstName+curUser._lastName, tagLine: curUser._tagLine, score: 99, skill1: "skill1", skill2: "skill2", skill3: "skill3")
 
         return cell
     }

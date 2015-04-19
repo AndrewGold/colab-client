@@ -9,22 +9,21 @@
 import UIKit
 
 class User: NSObject {
-    var _name:String!
+    
+    var _firstName:String!
+    var _lastName:String!
+    var _email:String!
+    var _hashedPassword:String!
     var _tagLine:String!
-    var _score:String!
+    var _description:String!
+    var _location:String!
+    var _image:String!
     
-    var _skill1:String!
-    var _skill2:String!
-    var _skill3:String!
+    var _skills:[Skill]!
+    var _projects:[Project:[Skill]]!
     
-    
-    init(name:String!, tagLine:String!, score:String!, skill1:String!, skill2:String!, skill3:String!) {
-        _name = name
-        _tagLine = tagLine
-        _score = score
-        
-        _skill1 = skill1
-        _skill2 = skill2
-        _skill3 = skill3
+    init(email:String!) {
+        _email = email
+        super.init()
     }
 }
