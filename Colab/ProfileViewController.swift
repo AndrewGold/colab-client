@@ -31,7 +31,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _userImage.image = userImage!
+        if(userImage != nil) {
+            _userImage.image = userImage!
+        }
         _userName.text = userName
         _userTagLine.text = userTagLine
         _userScore.text = userScore

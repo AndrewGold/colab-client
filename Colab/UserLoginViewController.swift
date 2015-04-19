@@ -49,6 +49,8 @@ class UserLoginViewController: UIViewController {
             print(responseObject)
         }
         
+        segueToApp()
+        
     }
     
     @IBAction func newUserButtonPressed(sender: AnyObject) {
@@ -72,14 +74,17 @@ class UserLoginViewController: UIViewController {
     
     
     
-    /*
     // MARK: - Navigation
-
+    private func segueToApp() {
+        performSegueWithIdentifier("logInSegue", sender: self)
+    }
+    
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
     }
-    */
 
 }

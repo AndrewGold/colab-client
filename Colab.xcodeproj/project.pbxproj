@@ -132,8 +132,8 @@
 		D3C7C4751AB7637D00693A0F /* Colab */ = {
 			isa = PBXGroup;
 			children = (
-				D522EE221AE430D600F13E45 /* Models */,
 				D5752F101AB76A59007E5926 /* Interface */,
+				D522EE221AE430D600F13E45 /* Models */,
 				D5752F0F1AB76A44007E5926 /* Application Classes */,
 				D5752F0D1AB76A0D007E5926 /* Search Classes */,
 				D5752F0C1AB769FC007E5926 /* View Controllers */,

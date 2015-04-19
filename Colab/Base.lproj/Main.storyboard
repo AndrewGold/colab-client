@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b1O-Jx-be7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D105g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b1O-Jx-be7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -128,7 +128,7 @@
             </objects>
             <point key="canvasLocation" x="1608" y="758"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Item-->
         <scene sceneID="rI5-Kh-clC">
             <objects>
                 <viewController id="EuQ-hV-CYe" customClass="ProfileViewController" customModule="Colab" customModuleProvider="target" sceneMemberID="viewController">
@@ -140,7 +140,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ftI-Ga-erB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ftI-Ga-erB">
                                 <rect key="frame" x="16" y="72" width="82" height="82"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="YFN-k6-fn9"/>
@@ -239,6 +239,7 @@
                             <constraint firstItem="ftI-Ga-erB" firstAttribute="top" secondItem="JNj-X3-sEl" secondAttribute="bottom" constant="8" id="u9D-xa-lpf"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="6Ww-zG-ryT"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -253,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npw-u4-GY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2271" y="758"/>
+            <point key="canvasLocation" x="1608" y="14"/>
         </scene>
         <!--User Login View Controller-->
         <scene sceneID="klb-yX-SNq">
@@ -277,15 +278,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTf-qT-JSR">
-                                <rect key="frame" x="237" y="285" width="126" height="26"/>
-                                <state key="normal" title="Log In">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitButtonPressed:" destination="b1O-Jx-be7" eventType="touchUpInside" id="cPp-Il-7mx"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4V-pw-Gwg">
                                 <rect key="frame" x="233" y="319" width="134" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -301,6 +293,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTf-qT-JSR">
+                                <rect key="frame" x="237" y="285" width="126" height="26"/>
+                                <state key="normal" title="Log In">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="b1O-Jx-be7" eventType="touchUpInside" id="cPp-Il-7mx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -340,9 +341,11 @@
                     </view>
                     <connections>
                         <outlet property="_newUserButton" destination="i4V-pw-Gwg" id="fwM-C3-ekq"/>
+                        <outlet property="_submitButton" destination="sTf-qT-JSR" id="kBd-I7-gxF"/>
                         <outlet property="_userConfirmPassword" destination="5HE-ye-Qp1" id="iqf-tz-8Kh"/>
                         <outlet property="_userEmail" destination="Cby-VX-GNr" id="gfC-Cm-Ygn"/>
                         <outlet property="_userPassword" destination="jav-oY-11F" id="yuh-uy-Whh"/>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="logInSegue" id="yDY-TQ-E1n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epM-Eg-mf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -361,11 +364,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="xm3-4T-EZO" kind="relationship" relationship="viewControllers" id="8g4-SC-ysx"/>
+                        <segue destination="EuQ-hV-CYe" kind="relationship" relationship="viewControllers" id="5mN-bX-LH0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="80" y="14"/>
+            <point key="canvasLocation" x="796" y="14"/>
         </scene>
         <!--Item-->
         <scene sceneID="KTO-Yx-MJb">
@@ -387,4 +391,7 @@
             <point key="canvasLocation" x="796" y="758"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5mN-bX-LH0"/>
+    </inferredMetricsTieBreakers>
 </document>
