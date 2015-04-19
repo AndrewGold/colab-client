@@ -23,7 +23,7 @@ class QueryManager: NSObject {
         _requestManager.requestSerializer.setValue("Application/JSON", forHTTPHeaderField:"Accept")
     }
     
-    func POST(params:AnyObject!, url:String!, callback: (AnyObject) -> Void) {
+    func POST(params:AnyObject?, url:String, callback: (AnyObject) -> Void) {
         
         var URL = _URL + url
     
