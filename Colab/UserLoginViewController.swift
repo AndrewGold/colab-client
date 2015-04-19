@@ -37,6 +37,18 @@ class UserLoginViewController: UIViewController {
 
     @IBAction func submitButtonPressed(sender: AnyObject) {
         
+        var URLsuffix:String!
+        
+        if (newUser == true) {
+            URLsuffix = Constants.URLsuffix.signup
+        } else {
+            URLsuffix = Constants.URLsuffix.login
+        }
+        
+        QueryManager.sharedInstance.POST(["email": _userEmail.text, "password": _userPassword.text], url: URLsuffix) { (responseObject) -> Void in
+            print(responseObject)
+        }
+        
     }
     
     @IBAction func newUserButtonPressed(sender: AnyObject) {
@@ -48,10 +60,12 @@ class UserLoginViewController: UIViewController {
         if !newUser { // IF returning user
             _userConfirmPassword.enabled = false
             _userConfirmPassword.hidden = true
+            _submitButton.setTitle("Log In", forState: .Normal);
             _newUserButton.setTitle("New User? Sign Up!", forState: UIControlState.Normal)
         } else { // IF new user
             _userConfirmPassword.enabled = true
             _userConfirmPassword.hidden = false
+            _submitButton.setTitle("Sign Up", forState: .Normal);
             _newUserButton.setTitle("Returning user? Sign In!", forState: UIControlState.Normal)
         }
     }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		981F4CFFA0CD8E619414436A /* libPods-Colab.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B983FCBEB40B630368A4F0 /* libPods-Colab.a */; };
 		B507D42D818AC20D823FAD28 /* libPods-ColabTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C794FF8B0A47A2BBFDEBD8FB /* libPods-ColabTests.a */; };
+		D30C63F21AE435A400C5AFF7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C63F11AE435A400C5AFF7 /* Constants.swift */; };
 		D3C7C4791AB7637D00693A0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7C4781AB7637D00693A0F /* AppDelegate.swift */; };
 		D3C7C4801AB7637D00693A0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3C7C47E1AB7637D00693A0F /* Main.storyboard */; };
 		D3C7C4821AB7637D00693A0F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3C7C4811AB7637D00693A0F /* Images.xcassets */; };
@@ -44,6 +45,7 @@
 		836C9A7FD26DA67D25C7E782 /* Pods-ColabTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColabTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColabTests/Pods-ColabTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD2601C1F45683888504EBC1 /* Pods-Colab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Colab/Pods-Colab.debug.xcconfig"; sourceTree = "<group>"; };
 		C794FF8B0A47A2BBFDEBD8FB /* libPods-ColabTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ColabTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D30C63F11AE435A400C5AFF7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D3C7C4731AB7637D00693A0F /* Colab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Colab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C7C4771AB7637D00693A0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3C7C4781AB7637D00693A0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				D522EE291AE4313800F13E45 /* QueryManager.swift */,
 				D5752EFA1AB7681C007E5926 /* Collections.swift */,
 				D3C7C4781AB7637D00693A0F /* AppDelegate.swift */,
+				D30C63F11AE435A400C5AFF7 /* Constants.swift */,
 			);
 			name = "Application Classes";
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				D522EE281AE4312500F13E45 /* User.swift in Sources */,
 				D522EE2A1AE4313800F13E45 /* QueryManager.swift in Sources */,
 				D522EE261AE4312500F13E45 /* Project.swift in Sources */,
+				D30C63F21AE435A400C5AFF7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
