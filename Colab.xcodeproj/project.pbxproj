@@ -10,8 +10,6 @@
 		981F4CFFA0CD8E619414436A /* libPods-Colab.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B983FCBEB40B630368A4F0 /* libPods-Colab.a */; };
 		B507D42D818AC20D823FAD28 /* libPods-ColabTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C794FF8B0A47A2BBFDEBD8FB /* libPods-ColabTests.a */; };
 		D3C7C4791AB7637D00693A0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7C4781AB7637D00693A0F /* AppDelegate.swift */; };
-		D3C7C47B1AB7637D00693A0F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7C47A1AB7637D00693A0F /* FirstViewController.swift */; };
-		D3C7C47D1AB7637D00693A0F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7C47C1AB7637D00693A0F /* SecondViewController.swift */; };
 		D3C7C4801AB7637D00693A0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3C7C47E1AB7637D00693A0F /* Main.storyboard */; };
 		D3C7C4821AB7637D00693A0F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3C7C4811AB7637D00693A0F /* Images.xcassets */; };
 		D3C7C4851AB7637D00693A0F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C7C4831AB7637D00693A0F /* LaunchScreen.xib */; };
@@ -19,11 +17,9 @@
 		D522EE211AE41F7500F13E45 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D522EE201AE41F7500F13E45 /* UserLoginViewController.swift */; };
 		D5752F021AB7681C007E5926 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752EFA1AB7681C007E5926 /* Collections.swift */; };
 		D5752F031AB7681C007E5926 /* CustomUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752EFB1AB7681C007E5926 /* CustomUserTableViewCell.swift */; };
-		D5752F041AB7681C007E5926 /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752EFC1AB7681C007E5926 /* LogInController.swift */; };
 		D5752F051AB7681C007E5926 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = D5752EFD1AB7681C007E5926 /* placeholder.png */; };
 		D5752F061AB7681C007E5926 /* SearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752EFE1AB7681C007E5926 /* SearchHelper.swift */; };
 		D5752F071AB7681C007E5926 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752EFF1AB7681C007E5926 /* SearchTableViewController.swift */; };
-		D5752F081AB7681C007E5926 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752F001AB7681C007E5926 /* SignUpController.swift */; };
 		D5752F091AB7681C007E5926 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752F011AB7681C007E5926 /* User.swift */; };
 		D5F15DBB1ADDD9E30062F69D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F15DBA1ADDD9E30062F69D /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
@@ -48,8 +44,6 @@
 		D3C7C4731AB7637D00693A0F /* Colab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Colab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C7C4771AB7637D00693A0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3C7C4781AB7637D00693A0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D3C7C47A1AB7637D00693A0F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		D3C7C47C1AB7637D00693A0F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		D3C7C47F1AB7637D00693A0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D3C7C4811AB7637D00693A0F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D3C7C4841AB7637D00693A0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -59,11 +53,9 @@
 		D522EE201AE41F7500F13E45 /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
 		D5752EFA1AB7681C007E5926 /* Collections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		D5752EFB1AB7681C007E5926 /* CustomUserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUserTableViewCell.swift; sourceTree = "<group>"; };
-		D5752EFC1AB7681C007E5926 /* LogInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
 		D5752EFD1AB7681C007E5926 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		D5752EFE1AB7681C007E5926 /* SearchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHelper.swift; sourceTree = "<group>"; };
 		D5752EFF1AB7681C007E5926 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
-		D5752F001AB7681C007E5926 /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		D5752F011AB7681C007E5926 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D5752F0B1AB768A2007E5926 /* Co-Llab-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Co-Llab-Bridging-Header.h"; sourceTree = "<group>"; };
 		D5F15DBA1ADDD9E30062F69D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -134,7 +126,6 @@
 			children = (
 				D5752F101AB76A59007E5926 /* Interface */,
 				D5752F0F1AB76A44007E5926 /* Application Classes */,
-				D5752F0E1AB76A34007E5926 /* Logic Controllers */,
 				D5752F0D1AB76A0D007E5926 /* Search Classes */,
 				D5752F0C1AB769FC007E5926 /* View Controllers */,
 				D5752F0B1AB768A2007E5926 /* Co-Llab-Bridging-Header.h */,
@@ -175,8 +166,6 @@
 			children = (
 				D522EE201AE41F7500F13E45 /* UserLoginViewController.swift */,
 				D5752EFF1AB7681C007E5926 /* SearchTableViewController.swift */,
-				D3C7C47A1AB7637D00693A0F /* FirstViewController.swift */,
-				D3C7C47C1AB7637D00693A0F /* SecondViewController.swift */,
 				D5F15DBA1ADDD9E30062F69D /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
@@ -189,15 +178,6 @@
 				D5752EFE1AB7681C007E5926 /* SearchHelper.swift */,
 			);
 			name = "Search Classes";
-			sourceTree = "<group>";
-		};
-		D5752F0E1AB76A34007E5926 /* Logic Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D5752EFC1AB7681C007E5926 /* LogInController.swift */,
-				D5752F001AB7681C007E5926 /* SignUpController.swift */,
-			);
-			name = "Logic Controllers";
 			sourceTree = "<group>";
 		};
 		D5752F0F1AB76A44007E5926 /* Application Classes */ = {
@@ -388,12 +368,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5752F031AB7681C007E5926 /* CustomUserTableViewCell.swift in Sources */,
-				D5752F041AB7681C007E5926 /* LogInController.swift in Sources */,
-				D5752F081AB7681C007E5926 /* SignUpController.swift in Sources */,
 				D522EE211AE41F7500F13E45 /* UserLoginViewController.swift in Sources */,
-				D3C7C47D1AB7637D00693A0F /* SecondViewController.swift in Sources */,
 				D3C7C4791AB7637D00693A0F /* AppDelegate.swift in Sources */,
-				D3C7C47B1AB7637D00693A0F /* FirstViewController.swift in Sources */,
 				D5F15DBB1ADDD9E30062F69D /* ProfileViewController.swift in Sources */,
 				D5752F021AB7681C007E5926 /* Collections.swift in Sources */,
 				D5752F061AB7681C007E5926 /* SearchHelper.swift in Sources */,
