@@ -10,7 +10,7 @@ class Project: NSObject {
     
     var _title:String!
     var _description:String!
-    var _owner:User!
-    var _users:[User]!
+    var _owner:String!
+    var _users:[String]!
 
 }
