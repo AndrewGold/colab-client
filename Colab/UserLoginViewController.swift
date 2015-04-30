@@ -52,9 +52,15 @@ class UserLoginViewController: UIViewController {
                     self.segueToApp()
                 } else {
                     self.showAlert("Incorrect username or password. Please try again.")
+                    
+                    // TODO: take out only for testing
+                    self.segueToApp()
                 }
             } else {
                 self.showAlert("Network error. Please make sure you are connected to the internet and try again.")
+                
+                // TODO: take out only for testing
+                self.segueToApp()
             }
         }
         
