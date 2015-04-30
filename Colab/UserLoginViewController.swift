@@ -47,9 +47,18 @@ class UserLoginViewController: UIViewController {
         
         QueryManager.sharedInstance.POST(["email": _userEmail.text, "password": _userPassword.text], url: URLsuffix) { (responseObject) -> Void in
             print(responseObject)
+            if let status: AnyObject? = responseObject["status"] {
+                if (Int(status as! NSNumber) == 0) {
+                    self.segueToApp()
+                } else {
+                    self.showAlert("Incorrect username or password. Please try again.")
+                }
+            } else {
+                self.showAlert("Network error. Please make sure you are connected to the internet and try again.")
+            }
         }
         
-        segueToApp()
+        
         
     }
     
@@ -77,6 +86,11 @@ class UserLoginViewController: UIViewController {
     // MARK: - Navigation
     private func segueToApp() {
         performSegueWithIdentifier("logInSegue", sender: self)
+    }
+    
+    private func showAlert(message: String) {
+        var alert = UIAlertView(title: "Oops!", message: message, delegate: self, cancelButtonTitle: "Okay");
+        alert.show()
     }
     
     
