@@ -10,17 +10,19 @@ import UIKit
 
 class SearchTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
-    @IBOutlet weak var _searchBar: UISearchBar!
     @IBOutlet weak var _tableView: UITableView!
     
+    let _searchBar = UISearchBar()
     
     private let searchHelper = SearchHelper()
-    private let userController = UserController()
     
     var currentDisplayUsers:[User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        _searchBar.delegate = self
+        self.navigationItem.titleView = self._searchBar
         
         currentDisplayUsers = searchHelper.returnSearchResults("")
         
@@ -32,13 +34,13 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewDidAppear(animated: Bool) {
-        QueryManager.sharedInstance.GET(nil, url: Constants.URLsuffix.getAllUsers) { (responseObject) -> Void in
-            print(responseObject)
-            
-            
+        UserController.getAllUsers { (users) -> Void in
+            self.currentDisplayUsers = users as! [User]
+            self._tableView.reloadData()
         }
+        
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -64,7 +66,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         let curUser = currentDisplayUsers[indexPath.item]
         
-        // cell.setUpCell("placeholder", name: curUser._firstName+curUser._lastName, tagLine: curUser._tagLine, score: 99, skill1: "skill1", skill2: "skill2", skill3: "skill3")
+        cell.textLabel?.text = curUser._email
         
         return cell
     }

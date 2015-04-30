@@ -17,15 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vJ1-Y2-X0E">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="drE-Vl-tAI" id="7r1-Fe-CMt"/>
-                                </connections>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4Wo-6u-WlM">
-                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4Wo-6u-WlM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" rowHeight="74" id="2G9-1S-Ft9" customClass="CustomUserTableViewCell" customModule="Colab" customModuleProvider="target">
@@ -108,19 +101,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4Wo-6u-WlM" firstAttribute="top" secondItem="vJ1-Y2-X0E" secondAttribute="bottom" id="2qx-Qf-sac"/>
-                            <constraint firstItem="p9c-4Z-tEN" firstAttribute="top" secondItem="4Wo-6u-WlM" secondAttribute="bottom" id="4hm-fo-6i0"/>
-                            <constraint firstItem="vJ1-Y2-X0E" firstAttribute="leading" secondItem="jYl-EW-hvp" secondAttribute="leadingMargin" constant="-16" id="5xr-kP-ZpN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4Wo-6u-WlM" secondAttribute="trailing" constant="-16" id="IoQ-09-hEV"/>
-                            <constraint firstItem="4Wo-6u-WlM" firstAttribute="leading" secondItem="jYl-EW-hvp" secondAttribute="leadingMargin" constant="-16" id="PyT-qO-otN"/>
-                            <constraint firstItem="vJ1-Y2-X0E" firstAttribute="top" secondItem="hKW-XQ-x8g" secondAttribute="bottom" id="i2W-Hp-Zb9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vJ1-Y2-X0E" secondAttribute="trailing" constant="-16" id="kaQ-VW-9Vq"/>
+                            <constraint firstItem="4Wo-6u-WlM" firstAttribute="top" secondItem="hKW-XQ-x8g" secondAttribute="bottom" id="8Gm-7Y-YOM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Wo-6u-WlM" secondAttribute="trailing" constant="-16" id="9c0-ON-Nis"/>
+                            <constraint firstItem="4Wo-6u-WlM" firstAttribute="leading" secondItem="jYl-EW-hvp" secondAttribute="leadingMargin" constant="-16" id="EyH-DP-cWv"/>
+                            <constraint firstItem="p9c-4Z-tEN" firstAttribute="top" secondItem="4Wo-6u-WlM" secondAttribute="bottom" id="j74-VV-KbR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="Ls7-kz-jxC"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="_searchBar" destination="vJ1-Y2-X0E" id="4rP-Mi-zTe"/>
                         <outlet property="_tableView" destination="4Wo-6u-WlM" id="X6z-Cv-XFa"/>
                     </connections>
                 </viewController>
@@ -429,6 +418,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6er-Dd-vyR"/>
+        <segue reference="Wod-zV-qlL"/>
     </inferredMetricsTieBreakers>
 </document>

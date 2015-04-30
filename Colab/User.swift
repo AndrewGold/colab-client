@@ -44,9 +44,19 @@ class User: NSObject {
         return dictionary
     }
     
-    class func deserialize(users:NSDictionary) -> User {
-        let usr = User(id: "nil")
+    class func deserialize(user:NSDictionary) -> User {
+        let usr = User(id: user[Constants.userKeys.ID] as! String)
     
+        usr._email = user[Constants.userKeys.email] as? String
+        usr._firstName = user[Constants.userKeys.firstName] as? String
+        usr._lastName = user[Constants.userKeys.lastName] as? String
+        usr._description = user[Constants.userKeys.description] as? String
+        usr._id = user[Constants.userKeys.ID] as? String
+        usr._location = user[Constants.userKeys.location] as? String
+        usr._image = user[Constants.userKeys.image] as? String
+        usr._tagline = user[Constants.userKeys.tagline] as? String
+        
         return usr
+    
     }
 }
