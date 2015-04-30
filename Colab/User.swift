@@ -43,4 +43,10 @@ class User: NSObject {
         
         return dictionary
     }
+    
+    class func deserialize(users:NSDictionary) -> User {
+        let usr = User(id: "nil")
+    
+        return usr
+    }
 }

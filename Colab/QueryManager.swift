@@ -11,7 +11,7 @@ private let _managerSharedInstance = QueryManager()
 class QueryManager: NSObject {
     
     let _requestManager = AFHTTPRequestOperationManager()
-    let _URL = "http://127.0.0.1:8080"
+    let _URL = "http://co-llab.herokuapp.com"
     
     class var sharedInstance: QueryManager {
         return _managerSharedInstance
@@ -33,13 +33,19 @@ class QueryManager: NSObject {
                 callback(obj)
             }, failure: { (operation, err) in
                 callback(err)
-        });
+        })
         
     }
     
     func GET(params:AnyObject!, url:String!, callback: (AnyObject) -> Void) {
         
+        var URL = _URL + url
         
+        _requestManager.GET(URL, parameters: params, success: { (operation, obj) -> Void in
+            callback(obj)
+            }, failure: { (operation, err) -> Void in
+            callback(err)
+        })
     }
 
 }

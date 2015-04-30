@@ -101,6 +101,7 @@ class ProfileViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = editButton
     }
     
+    
     func beginChat() {
         
     }

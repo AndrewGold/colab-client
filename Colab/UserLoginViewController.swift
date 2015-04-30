@@ -49,18 +49,21 @@ class UserLoginViewController: UIViewController {
             print(responseObject)
             if let status: AnyObject? = responseObject["status"] {
                 if (Int(status as! NSNumber) == 0) {
+                    
+                    UserController.setUserID(responseObject["userId"] as! String)
+                    
                     self.segueToApp()
                 } else {
                     self.showAlert("Incorrect username or password. Please try again.")
-                    
-                    // TODO: take out only for testing
-                    self.segueToApp()
+//                    
+//                    // TODO: take out only for testing
+//                    self.segueToApp()
                 }
             } else {
                 self.showAlert("Network error. Please make sure you are connected to the internet and try again.")
-                
-                // TODO: take out only for testing
-                self.segueToApp()
+//                
+//                // TODO: take out only for testing
+//                self.segueToApp()
             }
         }
         

@@ -6,7 +6,21 @@
 //  Copyright (c) 2015 goldreddyfishkin. All rights reserved.
 //
 
+private var userID:String?
+
 class UserController: NSObject {
+    
+    class var currentUser: String? {
+        if (userID != nil) {
+            return userID!
+        } else {
+            return nil
+        }
+    }
+    
+    class func setUserID(id: String!) {
+        userID = id
+    }
     
     func updateUserInfo(user:User!, tagline:String!, description:String!, location:String!) {
         
@@ -15,5 +29,8 @@ class UserController: NSObject {
         }
         
     }
+    
+    func getAllUsers 
+
 
 }

@@ -15,6 +15,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     private let searchHelper = SearchHelper()
+    private let userController = UserController()
     
     var currentDisplayUsers:[User] = []
     
@@ -28,6 +29,14 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        QueryManager.sharedInstance.GET(nil, url: Constants.URLsuffix.getAllUsers) { (responseObject) -> Void in
+            print(responseObject)
+            
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {

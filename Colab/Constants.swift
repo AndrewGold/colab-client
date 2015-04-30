@@ -12,6 +12,7 @@ class Constants: NSObject {
         static let login = "/login"
         static let signup = "/signup"
         static let updateUserInfo = "/updateUserInfo"
+        static let getAllUsers = "/getAllUsers"
     }
     
     struct responseStatus {
