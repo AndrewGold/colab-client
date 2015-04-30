@@ -49,12 +49,21 @@ class UserLoginViewController: UIViewController {
             print(responseObject)
             if let status: AnyObject? = responseObject["status"] {
                 if (Int(status as! NSNumber) == 0) {
+                    
+                    UserController.setUserID(responseObject["userId"] as! String)
+                    
                     self.segueToApp()
                 } else {
                     self.showAlert("Incorrect username or password. Please try again.")
+//                    
+//                    // TODO: take out only for testing
+//                    self.segueToApp()
                 }
             } else {
                 self.showAlert("Network error. Please make sure you are connected to the internet and try again.")
+//                
+//                // TODO: take out only for testing
+//                self.segueToApp()
             }
         }
         
@@ -98,6 +107,15 @@ class UserLoginViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if(segue.identifier == "logInSegue") {
+            if let destination = segue.destinationViewController as? UITabBarController {
+                if let navCont = destination.viewControllers?[0] as? UINavigationController {
+                    if let profCont = navCont.viewControllers?[0] as? ProfileViewController {
+                        profCont.isSelf = true
+                    }
+                }
+            }
+        }
         
     }
 
