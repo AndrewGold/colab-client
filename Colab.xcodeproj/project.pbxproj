@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		981F4CFFA0CD8E619414436A /* libPods-Colab.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63B983FCBEB40B630368A4F0 /* libPods-Colab.a */; };
 		B507D42D818AC20D823FAD28 /* libPods-ColabTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C794FF8B0A47A2BBFDEBD8FB /* libPods-ColabTests.a */; };
-		BF4F4FFC1AF2CB1E00C3CE8C /* Colab in Resources */ = {isa = PBXBuildFile; fileRef = BF4F4FFB1AF2CB1E00C3CE8C /* Colab */; };
 		BFA290941AF2C76D0062E06A /* AddProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA290931AF2C76D0062E06A /* AddProjectViewController.swift */; };
 		D30C63F21AE435A400C5AFF7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C63F11AE435A400C5AFF7 /* Constants.swift */; };
 		D30C63F91AE447D600C5AFF7 /* QueryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30C63F71AE447D600C5AFF7 /* QueryManager.swift */; };
@@ -47,7 +46,6 @@
 		82BE2E7BB73B25D4FF578869 /* Pods-Colab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colab.release.xcconfig"; path = "Pods/Target Support Files/Pods-Colab/Pods-Colab.release.xcconfig"; sourceTree = "<group>"; };
 		836C9A7FD26DA67D25C7E782 /* Pods-ColabTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ColabTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ColabTests/Pods-ColabTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD2601C1F45683888504EBC1 /* Pods-Colab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Colab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Colab/Pods-Colab.debug.xcconfig"; sourceTree = "<group>"; };
-		BF4F4FFB1AF2CB1E00C3CE8C /* Colab */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Colab; sourceTree = "<group>"; };
 		BFA290931AF2C76D0062E06A /* AddProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProjectViewController.swift; sourceTree = "<group>"; };
 		C794FF8B0A47A2BBFDEBD8FB /* libPods-ColabTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ColabTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D30C63F11AE435A400C5AFF7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 				D5752EFF1AB7681C007E5926 /* SearchTableViewController.swift */,
 				D5F15DBA1ADDD9E30062F69D /* ProfileViewController.swift */,
 				BFA290931AF2C76D0062E06A /* AddProjectViewController.swift */,
-				BF4F4FFB1AF2CB1E00C3CE8C /* Colab */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -322,7 +319,6 @@
 			files = (
 				D3C7C4801AB7637D00693A0F /* Main.storyboard in Resources */,
 				D5752F051AB7681C007E5926 /* placeholder.png in Resources */,
-				BF4F4FFC1AF2CB1E00C3CE8C /* Colab in Resources */,
 				D3C7C4851AB7637D00693A0F /* LaunchScreen.xib in Resources */,
 				D3C7C4821AB7637D00693A0F /* Images.xcassets in Resources */,
 			);

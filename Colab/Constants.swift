@@ -34,5 +34,12 @@ class Constants: NSObject {
         static let skills = "skills"
         static let projects = "projects"
     }
+    
+    struct projectKeys {
+        static let title = "title"
+        static let description = "description"
+        static let owner = "owner"
+        static let users = "users"
+    }
 
 }
