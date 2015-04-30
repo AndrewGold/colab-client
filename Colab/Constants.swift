@@ -11,11 +11,27 @@ class Constants: NSObject {
     struct URLsuffix {
         static let login = "/login"
         static let signup = "/signup"
+        static let updateUserInfo = "/updateUserInfo"
     }
     
     struct responseStatus {
+        static let statusKey = "status"
         static let success = 0
         static let error = 1
+    }
+    
+    struct userKeys {
+        static let ID = "_id"
+        static let firstName = "firstName"
+        static let lastName = "lastName"
+        static let email = "email"
+        static let hashedPassword = "hashedPassword"
+        static let tagline = "tagline"
+        static let description = "description"
+        static let location = "location"
+        static let image = "image"
+        static let skills = "skills"
+        static let projects = "projects"
     }
 
 }
