@@ -84,6 +84,15 @@ class UserLoginViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if(segue.identifier == "logInSegue") {
+            if let destination = segue.destinationViewController as? UITabBarController {
+                if let navCont = destination.viewControllers?[0] as? UINavigationController {
+                    if let profCont = navCont.viewControllers?[0] as? ProfileViewController {
+                        profCont.isSelf = true
+                    }
+                }
+            }
+        }
         
     }
 

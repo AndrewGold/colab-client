@@ -18,6 +18,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var _userSkill2: UILabel!
     @IBOutlet weak var _userSkill3: UILabel!
     
+    // Boolean - is this your profile or someone else's?
+    internal var isSelf = false
+    
     // Mark: - Private Variables
     private var userImage:UIImage?
     private var userName:String! = "Default"
@@ -72,7 +75,14 @@ class ProfileViewController: UIViewController {
         _userName.enabled = true
         _userTagLine.enabled = true
         
-        let editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveProfile"  )
+        var editButton:UIBarButtonItem?
+        
+        if (isSelf) {
+            editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "editProfile"  )
+        } else {
+            editButton = UIBarButtonItem(title: "Chat", style: UIBarButtonItemStyle.Plain, target: self, action: "beginChat")
+        }
+        
         self.navigationItem.rightBarButtonItem = editButton
     }
     
@@ -80,8 +90,19 @@ class ProfileViewController: UIViewController {
         _userName.enabled = false
         _userTagLine.enabled = false
         
-        let editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editProfile"  )
+        var editButton:UIBarButtonItem?
+    
+        if (isSelf) {
+             editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self, action: "editProfile"  )
+        } else {
+             editButton = UIBarButtonItem(title: "Chat", style: UIBarButtonItemStyle.Plain, target: self, action: "beginChat")
+        }
+        
         self.navigationItem.rightBarButtonItem = editButton
+    }
+    
+    func beginChat() {
+        
     }
 
     /*
