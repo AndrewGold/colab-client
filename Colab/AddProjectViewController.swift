@@ -57,7 +57,7 @@ class AddProjectViewController: UIViewController {
         project._users = getCollaborators();
         
         
-        QueryManager.sharedInstance.POST(["projects": _projectName.text], url: Constants.URLsuffix.updateUserInfo) { /*
+        QueryManager.sharedInstance.POST(["projects": _projectName.text], url: Constants.URLsuffix.updateUserInfo) { 
             (responseObject) -> Void in
             
             

@@ -72,6 +72,8 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("showProfileSegue", sender: tableView.cellForRowAtIndexPath(indexPath))
+        
         dismissKeyboard()
     }
     
@@ -114,11 +116,11 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     // Return false if you do not wish to highlight cells
     // TODO: turn off highlighting when done testing
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        print( (tableView.cellForRowAtIndexPath(indexPath) as! CustomUserTableViewCell)._userName.text! )
-        performSegueWithIdentifier("showProfileSegue", sender: tableView.cellForRowAtIndexPath(indexPath))
+       
         // TODO: Turn to false when done testing
-        return false
+        return true
     }
+    
     
     
     // MARK: - Navigation
