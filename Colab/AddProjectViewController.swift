@@ -45,6 +45,11 @@ class AddProjectViewController: UIViewController {
     }
     */
     
+    func getCollaborators() -> [String]! {
+        // Parse users from _projectCollaborators and get userIDs of the users.
+        
+        return [];
+    }
     
     
     @IBAction func submitButtonPressed(sender: AnyObject) {
@@ -53,20 +58,34 @@ class AddProjectViewController: UIViewController {
         
         project._title = _projectName.text;
         project._description = _projectDescription.text;
-        //project._owner = UserController.currentUser();            /*uncomment once UserController is merged with this file. */
+        project._owner = UserController.currentUser;
         project._users = getCollaborators();
         
+        /*need the serializer in the quiery manager and url suffix.
+
+        project.serialize();
         
+        QueryManager.sharedInstance.POST(["projects": _projectName.text], url: Constants.URLsuffix.updateUserInfo) { 
+            (responseObject) -> Void in
+            
+            
+        }
     }
     
     func getCollaborators() -> [String] {
         // Parse users from _projectCollaborators and get userIDs of the users.
         
-        return [];
+        
+        QueryManager.sharedInstance.POST(["projects": project], url: Constants.URLsuffix.addProject) {
+            (responseObject) -> Void in
+            
+            
+        }*/
     }
+
     
     
     
     
-    
-}
+
+};
