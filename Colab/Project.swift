@@ -13,8 +13,9 @@ class Project: NSObject {
     var _owner:String!
     var _users:[String]!
     
-    func serialize() -> NSDictionary {
-        var result:NSDictionary
+    func serialize() -> [String:AnyObject] {
+        
+        var result = [String:AnyObject]()
         
         result[Constants.projectKeys.title] = _title
         result[Constants.projectKeys.description] = _description

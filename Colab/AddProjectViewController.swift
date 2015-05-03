@@ -59,7 +59,7 @@ class AddProjectViewController: UIViewController {
         
     }
     
-    func getCollaborators() -> [User] {
+    func getCollaborators() -> [String] {
         // Parse users from _projectCollaborators and get userIDs of the users.
         
         return [];
