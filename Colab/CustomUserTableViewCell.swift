@@ -32,16 +32,18 @@ class CustomUserTableViewCell: UITableViewCell {
         
     }
     
-    func setUpCell(image:String!, name:String!, tagLine:String!, score:String!, skill1:String!, skill2:String!, skill3:String!)
+    func setUpCell(usr:User!)
     {
-        _userImage.image = UIImage(named: image)
-        _userName.text = name
-        _userTagline.text = tagLine
-        _userScore.text = score
         
-        _userSkill1.text = skill1
-        _userSkill2.text = skill2
-        _userSkill3.text = skill3
+        _userImage.image = UIImage(named: "placeholder.png")
+        _userName.text = usr._firstName! + usr._lastName!
+        _userTagline.text = usr._tagline!
+        _userScore.text = "99"
+        
+        _userSkill1.text = "default"
+        _userSkill2.text = "default"
+        _userSkill3.text = "default"
+        
     }
 
 }

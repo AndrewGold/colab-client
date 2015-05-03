@@ -95,7 +95,8 @@ class AddProjectViewController: UIViewController {
         QueryManager.sharedInstance.POST(["projects": _projectName.text], url: Constants.URLsuffix.updateUserInfo) {
             (responseObject) -> Void in
             
-            
+            let notification = NSNotification(name: Constants.notifications.kNewProjectNotification, object: project, userInfo: nil)
+            NSNotificationCenter.defaultCenter().postNotification(notification)
         }
     }
     

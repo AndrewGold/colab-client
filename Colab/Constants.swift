@@ -41,5 +41,9 @@ class Constants: NSObject {
         static let owner = "owner"
         static let users = "users"
     }
+    
+    struct notifications {
+        static let kNewProjectNotification = "kNewProjectNotification"
+    }
 
 }
