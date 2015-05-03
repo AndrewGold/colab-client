@@ -24,6 +24,9 @@ class UserLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         if (UserController.checkIfLoggedIn()) {
             self.segueToApp()
         } else {
