@@ -21,7 +21,6 @@ class UserLoginViewController: UIViewController {
     // Holds whether or not user is in signup or login
     var newUser = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -112,6 +111,8 @@ class UserLoginViewController: UIViewController {
                 if let navCont = destination.viewControllers?[0] as? UINavigationController {
                     if let profCont = navCont.viewControllers?[0] as? ProfileViewController {
                         profCont.isSelf = true
+                        
+                        profCont.firstTimeUser = newUser
                     }
                 }
             }
