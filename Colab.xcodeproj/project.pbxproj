@@ -27,6 +27,7 @@
 		D5752F051AB7681C007E5926 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = D5752EFD1AB7681C007E5926 /* placeholder.png */; };
 		D5752F061AB7681C007E5926 /* SearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752EFE1AB7681C007E5926 /* SearchHelper.swift */; };
 		D5752F071AB7681C007E5926 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5752EFF1AB7681C007E5926 /* SearchTableViewController.swift */; };
+		D57F12CF1AF6B89000333769 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57F12CE1AF6B89000333769 /* EditProfileViewController.swift */; };
 		D5F15DBB1ADDD9E30062F69D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F15DBA1ADDD9E30062F69D /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		D5752EFE1AB7681C007E5926 /* SearchHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchHelper.swift; sourceTree = "<group>"; };
 		D5752EFF1AB7681C007E5926 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		D5752F0B1AB768A2007E5926 /* Co-Llab-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Co-Llab-Bridging-Header.h"; sourceTree = "<group>"; };
+		D57F12CE1AF6B89000333769 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		D5F15DBA1ADDD9E30062F69D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,6 +203,7 @@
 				D5752EFF1AB7681C007E5926 /* SearchTableViewController.swift */,
 				D5F15DBA1ADDD9E30062F69D /* ProfileViewController.swift */,
 				BFA290931AF2C76D0062E06A /* AddProjectViewController.swift */,
+				D57F12CE1AF6B89000333769 /* EditProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				D522EE271AE4312500F13E45 /* Skill.swift in Sources */,
 				D5F15DBB1ADDD9E30062F69D /* ProfileViewController.swift in Sources */,
 				D5752F021AB7681C007E5926 /* Collections.swift in Sources */,
+				D57F12CF1AF6B89000333769 /* EditProfileViewController.swift in Sources */,
 				D5752F061AB7681C007E5926 /* SearchHelper.swift in Sources */,
 				D5752F071AB7681C007E5926 /* SearchTableViewController.swift in Sources */,
 				D522EE281AE4312500F13E45 /* User.swift in Sources */,

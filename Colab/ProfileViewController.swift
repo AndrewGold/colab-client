@@ -20,6 +20,7 @@ class ProfileViewController: UIViewController {
     
     // Boolean - is this your profile or someone else's?
     internal var isSelf = false
+    internal var firstTimeUser = true
     
     // Mark: - Private Variables
     private var userImage:UIImage?
@@ -44,7 +45,10 @@ class ProfileViewController: UIViewController {
         _userSkill2.text = userSkill2
         _userSkill3.text = userSkill3
         
-        saveProfile()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+         firstTimeUser ? editProfile() : saveProfile()
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,7 +82,8 @@ class ProfileViewController: UIViewController {
         var editButton:UIBarButtonItem?
         
         if (isSelf) {
-            editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveProfile"  )
+            firstTimeUser = false
+            performSegueWithIdentifier("setUpProfile", sender: self)
         } else {
             editButton = UIBarButtonItem(title: "Chat", style: UIBarButtonItemStyle.Plain, target: self, action: "beginChat")
         }
@@ -116,7 +121,6 @@ class ProfileViewController: UIViewController {
     }
     */
     @IBAction func addProjectButtonPressed(sender: AnyObject) {
-    
     }
 
 }
