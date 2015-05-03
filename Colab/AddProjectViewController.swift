@@ -23,7 +23,6 @@ class AddProjectViewController: UIViewController {
     @IBOutlet weak var _submit: UIButton!
     
     
-    /*Not sure if needed *//*
     //Edot Project Name
     @IBAction func projectNameEdited(sender: AnyObject) {
         
@@ -43,7 +42,6 @@ class AddProjectViewController: UIViewController {
     //Edit Project Contributors
     @IBAction func projectAddCollaborators(sender: AnyObject) {
     }
-    */
     
     func getCollaborators() -> [String]! {
         // Parse users from _projectCollaborators and get userIDs of the users.

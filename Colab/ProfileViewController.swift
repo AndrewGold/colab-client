@@ -116,7 +116,9 @@ class ProfileViewController: UIViewController {
     }
     */
     @IBAction func addProjectButtonPressed(sender: AnyObject) {
-    
+        
+        performSegueWithIdentifier("presentAddProjectView", sender: self)
+        
     }
 
 }
