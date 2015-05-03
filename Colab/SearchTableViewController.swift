@@ -66,7 +66,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         let curUser = currentDisplayUsers[indexPath.item]
         
-        cell.textLabel?.text = curUser._email
+        cell.setUpCell(curUser)
         
         return cell
     }
@@ -118,7 +118,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
        
         // TODO: Turn to false when done testing
-        return true
+        return false
     }
     
     

@@ -78,7 +78,7 @@ class ProfileViewController: UIViewController {
         var editButton:UIBarButtonItem?
         
         if (isSelf) {
-            editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "editProfile"  )
+            editButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveProfile"  )
         } else {
             editButton = UIBarButtonItem(title: "Chat", style: UIBarButtonItemStyle.Plain, target: self, action: "beginChat")
         }
@@ -115,5 +115,8 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func addProjectButtonPressed(sender: AnyObject) {
+    
+    }
 
 }

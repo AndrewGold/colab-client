@@ -10,6 +10,6 @@
 #define _Co_Llab_Bridging_Header_h
 
 #import "AFNetworking.h"
-#import "JSQMessageViewController.h"
+// #import "JSQMessageViewController.h"
 
 #endif

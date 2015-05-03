@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b1O-Jx-be7">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -202,16 +202,32 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMe-om-xGg">
-                                <rect key="frame" x="16" y="133" width="568" height="132"/>
+                                <rect key="frame" x="16" y="133" width="568" height="125"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="131" id="Fo8-OH-A0S"/>
+                                    <constraint firstAttribute="height" constant="125" id="aMf-3E-xl1"/>
                                     <constraint firstAttribute="height" constant="134" id="uCm-rI-Lsl"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Fo8-OH-A0S"/>
+                                        <exclude reference="uCm-rI-Lsl"/>
+                                    </mask>
+                                </variation>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUF-nP-95W">
+                                <rect key="frame" x="25" y="266" width="81" height="30"/>
+                                <state key="normal" title="Add Project">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addProjectButtonPressed:" destination="EuQ-hV-CYe" eventType="touchUpInside" id="I89-7L-2UV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -222,6 +238,7 @@
                             <constraint firstItem="n3o-iX-Z4h" firstAttribute="leading" secondItem="a4R-tW-hmK" secondAttribute="leadingMargin" constant="-16" id="LNT-DM-46p"/>
                             <constraint firstItem="CGS-HV-wA2" firstAttribute="top" secondItem="cXg-8d-84v" secondAttribute="bottom" constant="10" id="N4O-xQ-GEQ"/>
                             <constraint firstItem="ohf-4k-ooU" firstAttribute="leading" secondItem="F79-ou-UgU" secondAttribute="trailing" constant="8" id="NTz-ug-LBd"/>
+                            <constraint firstItem="EUF-nP-95W" firstAttribute="top" secondItem="jMe-om-xGg" secondAttribute="bottom" constant="8" id="Pc5-ug-rpH"/>
                             <constraint firstItem="ohf-4k-ooU" firstAttribute="top" secondItem="cXg-8d-84v" secondAttribute="bottom" constant="10" id="X7B-dv-lBA"/>
                             <constraint firstItem="hBo-yL-zlb" firstAttribute="leading" secondItem="ftI-Ga-erB" secondAttribute="trailing" constant="8" id="YOd-5s-Tt0"/>
                             <constraint firstItem="jMe-om-xGg" firstAttribute="leading" secondItem="a4R-tW-hmK" secondAttribute="leadingMargin" id="aT8-vF-lml"/>
@@ -236,6 +253,7 @@
                             <constraint firstItem="jMe-om-xGg" firstAttribute="top" secondItem="CGS-HV-wA2" secondAttribute="bottom" constant="8" id="jRC-2O-RBM"/>
                             <constraint firstItem="F79-ou-UgU" firstAttribute="top" secondItem="cXg-8d-84v" secondAttribute="bottom" constant="10" id="n4F-4q-v3m"/>
                             <constraint firstItem="jMe-om-xGg" firstAttribute="leading" secondItem="a4R-tW-hmK" secondAttribute="leadingMargin" id="t0e-MC-J1N"/>
+                            <constraint firstItem="EUF-nP-95W" firstAttribute="leading" secondItem="a4R-tW-hmK" secondAttribute="leadingMargin" constant="9" id="uWd-HX-UBB"/>
                             <constraint firstItem="jMe-om-xGg" firstAttribute="trailing" secondItem="a4R-tW-hmK" secondAttribute="trailingMargin" id="w12-Zf-7t3"/>
                             <constraint firstItem="cXg-8d-84v" firstAttribute="leading" secondItem="ftI-Ga-erB" secondAttribute="trailing" constant="8" id="wLA-Y2-RZq"/>
                             <constraint firstItem="F79-ou-UgU" firstAttribute="leading" secondItem="ftI-Ga-erB" secondAttribute="trailing" constant="8" id="xO8-8C-Q67"/>
