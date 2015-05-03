@@ -27,11 +27,9 @@ class AddProjectViewController: UIViewController {
     var skill3IsSelected:Bool = false;
     var skills = [String]();
     
-    @IBAction func AddNewSkill(sender: UIButton) {
-        QueryManager.sharedInstance.POST(["skills": _projectAddNewSkill.text], url: Constants.URLsuffix.updateUserInfo) {
-            (responseObject) -> Void in
-            
-        }
+    //Edot Project Name
+    @IBAction func projectNameEdited(sender: AnyObject) {
+        
         
     }
     
