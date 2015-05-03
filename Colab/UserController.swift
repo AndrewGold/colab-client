@@ -45,18 +45,18 @@ class UserController: NSObject {
         }
     }
     
-    class func storeLoginInformation(email: String, password: String) {
+    class func storeLoginInformation(email: String, id: String) {
         
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject(email, forKey: "email")
-        defaults.setObject(password, forKey: "password")
+        defaults.setObject(id, forKey: "_id")
         defaults.synchronize()
         
     }
     
     class func checkIfLoggedIn() -> Bool {
         let defaults = NSUserDefaults.standardUserDefaults()
-        return (defaults.objectForKey("email") != nil && defaults.objectForKey("password") != nil)
+        return (defaults.objectForKey("email") != nil && defaults.objectForKey("_id") != nil)
     }
 
 

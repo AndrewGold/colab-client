@@ -24,8 +24,11 @@ class UserLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        updateView()
+        if (UserController.checkIfLoggedIn()) {
+            self.segueToApp()
+        } else {
+            updateView()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +53,7 @@ class UserLoginViewController: UIViewController {
                 if (Int(status as! NSNumber) == 0) {
                     
                     UserController.setUserID(responseObject["userId"] as! String)
+                    UserController.storeLoginInformation(self._userEmail.text, id: responseObject["userId"] as! String)
                     
                     self.segueToApp()
                 } else {
