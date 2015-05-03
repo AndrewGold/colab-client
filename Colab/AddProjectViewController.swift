@@ -22,28 +22,57 @@ class AddProjectViewController: UIViewController {
     
     @IBOutlet weak var _submit: UIButton!
     
+    var skill1IsSelected:Bool = false;
+    var skill2IsSelected:Bool = false;
+    var skill3IsSelected:Bool = false;
+    var skills = [String]();
     
-    /*Not sure if needed *//*
-    //Edot Project Name
-    @IBAction func projectNameEdited(sender: AnyObject) {
-        
+    @IBAction func AddNewSkill(sender: UIButton) {
+        QueryManager.sharedInstance.POST(["skills": _projectAddNewSkill.text], url: Constants.URLsuffix.updateUserInfo) {
+            (responseObject) -> Void in
+            
+        }
         
     }
     
-    //Edit Project Description
-    @IBAction func projectDescriptionEdited(sender: AnyObject) {
-        
+    func Skill1Touched(sender: UIButton) {
+        if skill1IsSelected == false{
+            sender.highlighted = true;
+            skill1IsSelected = true
+            //skills.append(skill1);        /* skill1 needs to be changed to the skill coming in */
+        }else{
+            sender.highlighted = false;
+            skill1IsSelected = false
+            //skills.removeAtIndex(find skill1 in array)`        /* Find skill in array */
+        }
         
     }
     
-    //Add new skills to the project
-    @IBAction func projectAddSkills(sender: AnyObject) {
+    func Skill2Touched(sender: UIButton) {
+        if skill2IsSelected == false{
+            sender.highlighted = true;
+            skill2IsSelected = true
+            //skills.append(skill3);        /* skill1 needs to be changed to the skill coming in */
+        }else{
+            sender.highlighted = false;
+            skill2IsSelected = false
+            //skills.removeAtIndex(find skill3 in array)`        /* Find skill in array */
+        }
+        
     }
     
-    //Edit Project Contributors
-    @IBAction func projectAddCollaborators(sender: AnyObject) {
+    func Skill3Touched(sender: UIButton) {
+        
+        if skill3IsSelected == false{
+            sender.highlighted = true;
+            skill3IsSelected = true
+            //skills.append(skill3);        /* skill1 needs to be changed to the skill coming in */
+        }else{
+            sender.highlighted = false;
+            skill3IsSelected = false
+            //skills.removeAtIndex(find skill3 in array)`        /* Find skill in array */
+        }
     }
-    */
     
     func getCollaborators() -> [String]! {
         // Parse users from _projectCollaborators and get userIDs of the users.
@@ -52,7 +81,7 @@ class AddProjectViewController: UIViewController {
     }
     
     
-    @IBAction func submitButtonPressed(sender: AnyObject) {
+    func submitButtonPressed(sender: AnyObject) {
         
         let project = Project();
         
@@ -61,31 +90,13 @@ class AddProjectViewController: UIViewController {
         project._owner = UserController.currentUser;
         project._users = getCollaborators();
         
-        /*need the serializer in the quiery manager and url suffix.
-
         project.serialize();
         
-        QueryManager.sharedInstance.POST(["projects": _projectName.text], url: Constants.URLsuffix.updateUserInfo) { 
+        QueryManager.sharedInstance.POST(["projects": _projectName.text], url: Constants.URLsuffix.updateUserInfo) {
             (responseObject) -> Void in
             
             
         }
     }
     
-    func getCollaborators() -> [String] {
-        // Parse users from _projectCollaborators and get userIDs of the users.
-        
-        
-        QueryManager.sharedInstance.POST(["projects": project], url: Constants.URLsuffix.addProject) {
-            (responseObject) -> Void in
-            
-            
-        }*/
-    }
-
-    
-    
-    
-    
-
 };
