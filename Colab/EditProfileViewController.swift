@@ -36,6 +36,19 @@ class EditProfileViewController: UIViewController {
     
     func saveInformation() {
         
+        var user = User(id: UserController.currentUser)
+        user._firstName = _firstName.text
+        user._lastName = _lastName.text
+        user._tagline = _tagLine.text
+        user._description = _description.text
+        
+        var params = [String:AnyObject]()
+        params["user"] = user.serialize()
+        
+        QueryManager.sharedInstance.POST(params, url: Constants.URLsuffix.updateUserInfo) { (responseObject) -> Void in
+            print(responseObject)
+        }
+        
     }
 
     /*

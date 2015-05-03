@@ -379,7 +379,7 @@
                         <outlet property="_userSkill2" destination="ohf-4k-ooU" id="lXV-WI-3Ta"/>
                         <outlet property="_userSkill3" destination="CGS-HV-wA2" id="0Ct-1I-J92"/>
                         <outlet property="_userTagLine" destination="cXg-8d-84v" id="wWZ-BW-Pdr"/>
-                        <segue destination="xGQ-Em-tZb" kind="presentation" identifier="presentAddProjectView" id="xz6-GZ-UFX"/>
+                        <segue destination="DGp-Kp-kbP" kind="show" identifier="setUpProfile" id="HUX-JQ-Jbg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npw-u4-GY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
