@@ -45,6 +45,17 @@ class UserController: NSObject {
         }
     }
     
+    class func getUser(id: String!, callback: (User) -> Void) {
+        
+        var params = [String:AnyObject]()
+        params["user"] = [Constants.userKeys.ID : id] as AnyObject
+        
+        QueryManager.sharedInstance.GET(params, url: Constants.URLsuffix.getUser) { (responseObject) -> Void in
+            var userDict = responseObject["user"] as! NSDictionary
+            callback(User.deserialize(userDict))
+        }
+    }
+    
     class func storeLoginInformation(email: String, id: String) {
         
         let defaults = NSUserDefaults.standardUserDefaults()
