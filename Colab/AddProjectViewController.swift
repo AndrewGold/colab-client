@@ -61,31 +61,22 @@ class AddProjectViewController: UIViewController {
         project._owner = UserController.currentUser;
         project._users = getCollaborators();
         
-        /*need the serializer in the quiery manager and url suffix.
-
-        project.serialize();
+        var params = [String:AnyObject]()
+        params["user"] = ([Constants.userKeys.ID:UserController.currentUser] as! AnyObject)
+        params["project"] = project.serialize()
         
-        QueryManager.sharedInstance.POST(["projects": _projectName.text], url: Constants.URLsuffix.updateUserInfo) { 
+        QueryManager.sharedInstance.POST(params, url: Constants.URLsuffix.updateUserInfo) {
             (responseObject) -> Void in
             
-            
+            let notification = NSNotification(name: Constants.notifications.kNewProjectNotification, object: project, userInfo: nil)
+            NSNotificationCenter.defaultCenter().postNotification(notification)
         }
     }
     
-    func getCollaborators() -> [String] {
-        // Parse users from _projectCollaborators and get userIDs of the users.
-        
-        
-        QueryManager.sharedInstance.POST(["projects": project], url: Constants.URLsuffix.addProject) {
-            (responseObject) -> Void in
-            
-            
-        }*/
-    }
 
     
     
     
     
 
-};
+}
