@@ -372,6 +372,7 @@
                     <navigationItem key="navigationItem" id="tBt-cf-gSj"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="_userDescription" destination="jMe-om-xGg" id="z7l-MI-uab"/>
                         <outlet property="_userImage" destination="ftI-Ga-erB" id="eum-5f-UbQ"/>
                         <outlet property="_userName" destination="hBo-yL-zlb" id="eAl-m8-YgT"/>
                         <outlet property="_userScore" destination="Ye9-1z-ucA" id="dVF-Aa-UpE"/>

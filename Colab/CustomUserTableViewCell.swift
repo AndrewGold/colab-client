@@ -36,7 +36,7 @@ class CustomUserTableViewCell: UITableViewCell {
     {
         
         _userImage.image = UIImage(named: "placeholder.png")
-        _userName.text = usr._firstName! + usr._lastName!
+        _userName.text = usr._firstName! + " " + usr._lastName!
         _userTagline.text = usr._tagline!
         _userScore.text = "99"
         

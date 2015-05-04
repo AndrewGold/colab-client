@@ -47,10 +47,10 @@ class UserController: NSObject {
     
     class func getUser(id: String!, callback: (User) -> Void) {
         
-        var params = [String:AnyObject]()
-        params["user"] = [Constants.userKeys.ID : id] as AnyObject
+        var parameters = [String:String]()
+        parameters["user"] = id
         
-        QueryManager.sharedInstance.GET(params, url: Constants.URLsuffix.getUser) { (responseObject) -> Void in
+        QueryManager.sharedInstance.POST(parameters, url: Constants.URLsuffix.getUser) { (responseObject) -> Void in
             var userDict = responseObject["user"] as! NSDictionary
             callback(User.deserialize(userDict))
         }
@@ -67,7 +67,8 @@ class UserController: NSObject {
     
     class func checkIfLoggedIn() -> Bool {
         let defaults = NSUserDefaults.standardUserDefaults()
-        return (defaults.objectForKey("email") != nil && defaults.objectForKey("_id") != nil)
+        userID = defaults.objectForKey("_id") as? String
+        return (defaults.objectForKey("email") != nil && userID != nil)
     }
 
 
