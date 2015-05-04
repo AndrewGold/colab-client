@@ -19,6 +19,7 @@ class AddProjectViewController: UIViewController {
     @IBOutlet weak var _projectAddNewSkill: UITextField!
     @IBOutlet weak var _addSkillButton: UIButton!
     
+    @IBOutlet weak var _collaboratorList: UILabel!
     @IBOutlet weak var _projectContributors: UITextField?
     
     @IBOutlet weak var _submit: UIButton!
@@ -61,10 +62,10 @@ class AddProjectViewController: UIViewController {
     }
     
     func Skill1Touched(sender: UIButton) {
-        if skill1IsSelected == false{
+        if skill1IsSelected == false {
             sender.highlighted = true;
             skill1IsSelected = true
-        }else{
+        } else {
             sender.highlighted = false;
             skill1IsSelected = false
         }
@@ -74,7 +75,7 @@ class AddProjectViewController: UIViewController {
         if skill2IsSelected == false{
             sender.highlighted = true;
             skill2IsSelected = true
-        }else{
+        } else {
             sender.highlighted = false;
             skill2IsSelected = false
         }
@@ -85,16 +86,25 @@ class AddProjectViewController: UIViewController {
         
         if skill3IsSelected == false{
             sender.highlighted = true;
-            skill3IsSelected = true
-        }else{
+            skill3IsSelected = true;
+        } else {
             sender.highlighted = false;
-            skill3IsSelected = false
+            skill3IsSelected = false;
         }
     }
     
     func AddCollaboratorTouched(sender: UIButton) {
+        _collaboratorList.text! = "";
+        
         if ((_projectContributors?.hasText()) != nil) {
             collaborators.append(_projectContributors!.text);
+            
+            _collaboratorList.text = "Collaborators: ";
+            
+            for _projectContributors in collaborators {
+                _collaboratorList.text! += _projectContributors;
+                _collaboratorList.text! += ", ";
+            }
             
             _projectContributors!.text = nil;
         }
