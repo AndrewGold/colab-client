@@ -17,14 +17,13 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     private let searchHelper = SearchHelper()
     
     var currentDisplayUsers:[User] = []
+    var allUsers:[User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         _searchBar.delegate = self
         self.navigationItem.titleView = self._searchBar
-        
-        currentDisplayUsers = searchHelper.returnSearchResults("")
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -36,6 +35,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidAppear(animated: Bool) {
         UserController.getAllUsers { (users) -> Void in
             self.currentDisplayUsers = users as! [User]
+            self.allUsers = users as! [User]
             
             for(var i = 0; i < self.currentDisplayUsers.count; i++) {
                 if(self.currentDisplayUsers[i]._id == UserController.currentUser) {
@@ -175,7 +175,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     // called when text changes (including clear)
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        currentDisplayUsers = searchHelper.returnSearchResults(searchText)
+        currentDisplayUsers = searchHelper.returnSearchResults(searchText, allUsers: allUsers)
         _tableView.reloadData()
     }
     
