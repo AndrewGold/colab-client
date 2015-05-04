@@ -96,8 +96,7 @@ class AddProjectViewController: UIViewController {
         if ((_projectContributors?.hasText()) != nil) {
             collaborators.append(_projectContributors!.text);
             
-            
-            //clear textfield for next entry somehow.
+            _projectContributors!.text = nil;
         }
     }
     
