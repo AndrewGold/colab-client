@@ -8,23 +8,16 @@
 
 import UIKit
 
-var collections = Collections()
-
 class SearchHelper: NSObject {
     
-    func returnSearchResults(searchTerm:String!) -> [User]{
+    func returnSearchResults(searchTerm:String!, allUsers:[User]) -> [User]{
         
         if searchTerm == "" {
-            return collections.users
+            return allUsers
         }
         
-        var users = collections.users
-        var rtrnUsers:[User] = []
-        
-        let predicate:NSPredicate! = NSPredicate(format: "name contains[c] %@", searchTerm)
-       
-        
-        return NSArray(array: users).filteredArrayUsingPredicate(predicate) as AnyObject as! [User]
+        let rtrnUsers = allUsers.filter( { $0._fullName!.lowercaseString.rangeOfString(searchTerm.lowercaseString) != nil } )
+        return rtrnUsers
  
     }
 }

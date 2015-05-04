@@ -20,6 +20,9 @@ class User: NSObject {
     var _location:String?
     var _image:String?
     
+    // used for search
+    var _fullName:String?
+    
     var _skills:[Skill]?
     var _projects:[Project:[Skill]]?
     
@@ -55,6 +58,8 @@ class User: NSObject {
         usr._location = user[Constants.userKeys.location] as? String
         usr._image = user[Constants.userKeys.image] as? String
         usr._tagline = user[Constants.userKeys.tagline] as? String
+        
+        usr._fullName = usr._firstName! + " " + usr._lastName!
         
         return usr
     
