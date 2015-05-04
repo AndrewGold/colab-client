@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
     // Boolean - is this your profile or someone else's?
     internal var isSelf = false
     internal var firstTimeUser = true
+    internal var curUsr:String?
     
     // Mark: - Private Variables
     private var userImage:UIImage?
@@ -49,9 +50,11 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        let curUsr = UserController.currentUser
+        if(isSelf) {
+            curUsr = UserController.currentUser
+        }
         
-        UserController.getUser(UserController.currentUser, callback: { (user) -> Void in
+        UserController.getUser(curUsr, callback: { (user) -> Void in
             self.setUpProfileWithUser(user)
             
             self.updateProfileFields()
@@ -98,6 +101,8 @@ class ProfileViewController: UIViewController {
         if cell._userSkill3.text != nil {
             userSkill3 = cell._userSkill3.text!
         }
+        
+        updateProfileFields()
     }
     
     func editProfile() {

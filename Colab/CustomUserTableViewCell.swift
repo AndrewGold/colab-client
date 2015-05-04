@@ -14,10 +14,13 @@ class CustomUserTableViewCell: UITableViewCell {
     @IBOutlet weak var _userName: UILabel!
     @IBOutlet weak var _userTagline: UILabel!
     @IBOutlet weak var _userScore: UILabel!
+
     
     @IBOutlet weak var _userSkill1: UILabel!
     @IBOutlet weak var _userSkill2: UILabel!
     @IBOutlet weak var _userSkill3: UILabel!
+    
+    var _userId:String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +47,7 @@ class CustomUserTableViewCell: UITableViewCell {
         _userSkill2.text = "default"
         _userSkill3.text = "default"
         
+        _userId = usr._id
     }
 
 }
