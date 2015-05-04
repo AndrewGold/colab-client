@@ -27,6 +27,7 @@ class AddProjectViewController: UIViewController {
     var skill2IsSelected:Bool = false;
     var skill3IsSelected:Bool = false;
     var skills = [String]();
+    var collaborators = [String]();
     
     var skillIndex = 1;
     
@@ -63,11 +64,9 @@ class AddProjectViewController: UIViewController {
         if skill1IsSelected == false{
             sender.highlighted = true;
             skill1IsSelected = true
-            //skills.append(skill1);        /* skill1 needs to be changed to the skill coming in */
         }else{
             sender.highlighted = false;
             skill1IsSelected = false
-            //skills.removeAtIndex(find skill1 in array)`        /* Find skill in array */
         }
     }
     
@@ -75,11 +74,9 @@ class AddProjectViewController: UIViewController {
         if skill2IsSelected == false{
             sender.highlighted = true;
             skill2IsSelected = true
-            //skills.append(skill3);        /* skill1 needs to be changed to the skill coming in */
         }else{
             sender.highlighted = false;
             skill2IsSelected = false
-            //skills.removeAtIndex(find skill3 in array)`        /* Find skill in array */
         }
         
     }
@@ -89,17 +86,16 @@ class AddProjectViewController: UIViewController {
         if skill3IsSelected == false{
             sender.highlighted = true;
             skill3IsSelected = true
-            //skills.append(skill3);        /* skill1 needs to be changed to the skill coming in */
         }else{
             sender.highlighted = false;
             skill3IsSelected = false
-            //skills.removeAtIndex(find skill3 in array)`        /* Find skill in array */
         }
     }
     
-    func getCollaborators() -> [String]! {
-        // Parse users from _projectCollaborators and return user names in an array.
-        return [];//_projectContributors.componentsSeparatedByString(",");
+    func AddCollaboratorTouched(sender: UIButton) {
+        collaborators.append(_projectCollaborators.text);
+        
+        //clear textfield for next entry somehow.
     }
     
     func submitButtonPressed(sender: AnyObject) {
@@ -109,7 +105,7 @@ class AddProjectViewController: UIViewController {
         project._title = _projectName.text;
         project._description = _projectDescription.text;
         project._owner = UserController.currentUser;
-        project._users = getCollaborators();
+        project._users = collaborators;
         
         project.serialize();
         
