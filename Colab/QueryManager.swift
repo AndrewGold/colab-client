@@ -42,8 +42,10 @@ class QueryManager: NSObject {
         var URL = _URL + url
         
         _requestManager.GET(URL, parameters: params, success: { (operation, obj) -> Void in
+            print(obj)
             callback(obj)
             }, failure: { (operation, err) -> Void in
+                print(err)
             callback(err)
         })
     }
