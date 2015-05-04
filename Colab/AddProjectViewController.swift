@@ -93,9 +93,12 @@ class AddProjectViewController: UIViewController {
     }
     
     func AddCollaboratorTouched(sender: UIButton) {
-        collaborators.append(_projectCollaborators.text);
-        
-        //clear textfield for next entry somehow.
+        if ((_projectContributors?.hasText()) != nil) {
+            collaborators.append(_projectContributors!.text);
+            
+            
+            //clear textfield for next entry somehow.
+        }
     }
     
     func submitButtonPressed(sender: AnyObject) {
