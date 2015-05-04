@@ -381,6 +381,7 @@
                         <outlet property="_userSkill3" destination="CGS-HV-wA2" id="0Ct-1I-J92"/>
                         <outlet property="_userTagLine" destination="cXg-8d-84v" id="wWZ-BW-Pdr"/>
                         <segue destination="DGp-Kp-kbP" kind="show" identifier="setUpProfile" id="HUX-JQ-Jbg"/>
+                        <segue destination="xGQ-Em-tZb" kind="show" identifier="presentAddProjectView" id="s2J-H1-VXR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npw-u4-GY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
