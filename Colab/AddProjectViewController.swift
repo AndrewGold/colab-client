@@ -45,7 +45,6 @@ class AddProjectViewController: UIViewController {
             skill1IsSelected = false
             //skills.removeAtIndex(find skill1 in array)`        /* Find skill in array */
         }
-        
     }
     
     func Skill2Touched(sender: UIButton) {
@@ -75,11 +74,9 @@ class AddProjectViewController: UIViewController {
     }
     
     func getCollaborators() -> [String]! {
-        // Parse users from _projectCollaborators and get userIDs of the users.
-        
-        return [];
+        // Parse users from _projectCollaborators and return user names in an array.
+        return [];//_projectContributors.componentsSeparatedByString(",");
     }
-    
     
     func submitButtonPressed(sender: AnyObject) {
         
