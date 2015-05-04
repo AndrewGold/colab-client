@@ -147,8 +147,9 @@ class ProfileViewController: UIViewController {
     */
     @IBAction func addProjectButtonPressed(sender: AnyObject) {
         
-        performSegueWithIdentifier("presentAddProjectView", sender: self)
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("AddProjectViewController") as! UIViewController
+        self.presentViewController(vc, animated: true, completion: nil)
     }
 
 }

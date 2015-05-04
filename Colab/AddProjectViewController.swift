@@ -17,6 +17,7 @@ class AddProjectViewController: UIViewController {
     @IBOutlet weak var _projectSkill2: UIButton!
     @IBOutlet weak var _projectSkill3: UIButton!
     @IBOutlet weak var _projectAddNewSkill: UITextField!
+    @IBOutlet weak var _addSkillButton: UIButton!
     
     @IBOutlet weak var _projectContributors: UITextField?
     
@@ -27,10 +28,33 @@ class AddProjectViewController: UIViewController {
     var skill3IsSelected:Bool = false;
     var skills = [String]();
     
+    var skillIndex = 1;
+    
     @IBAction func AddNewSkill(sender: UIButton) {
-        QueryManager.sharedInstance.POST(["skills": _projectAddNewSkill.text], url: Constants.URLsuffix.updateUserInfo) {
-            (responseObject) -> Void in
-            
+        if (_projectAddNewSkill.hasText()) {
+            switch skillIndex {
+            case 1:
+                _projectSkill1.setTitle(_projectAddNewSkill.text, forState: UIControlState.Normal)
+                _projectSkill1.sizeToFit()
+                skills += [_projectAddNewSkill.text]
+                _projectAddNewSkill.text = ""
+                skillIndex++
+            case 2:
+                _projectSkill2.setTitle(_projectAddNewSkill.text, forState: UIControlState.Normal)
+                _projectSkill2.sizeToFit()
+                skills += [_projectAddNewSkill.text]
+                _projectAddNewSkill.text = ""
+                skillIndex++
+            case 3:
+                _projectSkill3.setTitle(_projectAddNewSkill.text, forState: UIControlState.Normal)
+                _projectSkill3.sizeToFit()
+                skills += [_projectAddNewSkill.text]
+                _projectAddNewSkill.text = ""
+                skillIndex++
+            default:
+                let alert = UIAlertView(title: "Oops!", message: "You can only add up to 3 skills", delegate: self, cancelButtonTitle: "Okay")
+                alert.show()
+            }
         }
         
     }
