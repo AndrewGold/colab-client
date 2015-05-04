@@ -36,6 +36,13 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidAppear(animated: Bool) {
         UserController.getAllUsers { (users) -> Void in
             self.currentDisplayUsers = users as! [User]
+            
+            for(var i = 0; i < self.currentDisplayUsers.count; i++) {
+                if(self.currentDisplayUsers[i]._id == UserController.currentUser) {
+                    self.currentDisplayUsers.removeAtIndex(i)
+                }
+            }
+            
             self._tableView.reloadData()
         }
         
@@ -72,7 +79,6 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("showProfileSegue", sender: tableView.cellForRowAtIndexPath(indexPath))
         
         dismissKeyboard()
     }
@@ -116,7 +122,8 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     // Return false if you do not wish to highlight cells
     // TODO: turn off highlighting when done testing
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-       
+       performSegueWithIdentifier("showProfileSegue", sender: tableView.cellForRowAtIndexPath(indexPath))
+        dismissKeyboard()
         // TODO: Turn to false when done testing
         return false
     }
@@ -134,6 +141,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
             if let navCont = segue.destinationViewController as? UINavigationController {
                 if let profCont = navCont.viewControllers?[0] as? ProfileViewController {
                     profCont.isSelf = false
+                    profCont.curUsr = (sender as! CustomUserTableViewCell)._userId
                 }
             }
         }
