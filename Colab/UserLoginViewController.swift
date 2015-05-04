@@ -50,31 +50,71 @@ class UserLoginViewController: UIViewController {
             URLsuffix = Constants.URLsuffix.login
         }
         
+        if (newUser == true) {
+            var done = false
+            while (!done) {
+                if (checkSignUpFields() == true) {
+                    done = true
+                }
+            }
+            
+        }
+        
         QueryManager.sharedInstance.POST(["email": _userEmail.text, "password": _userPassword.text], url: URLsuffix) { (responseObject) -> Void in
             print(responseObject)
             if let status: AnyObject? = responseObject["status"] {
                 if (Int(status as! NSNumber) == 0) {
-                    
                     UserController.setUserID(responseObject["userId"] as! String)
                     UserController.storeLoginInformation(self._userEmail.text, id: responseObject["userId"] as! String)
-                    
+                
                     self.segueToApp()
                 } else {
                     self.showAlert("Incorrect username or password. Please try again.")
 //                    
-//                    // TODO: take out only for testing
-//                    self.segueToApp()
+//                     // TODO: take out only for testing
+//                     self.segueToApp()
                 }
             } else {
                 self.showAlert("Network error. Please make sure you are connected to the internet and try again.")
-//                
-//                // TODO: take out only for testing
-//                self.segueToApp()
+//
+//                 // TODO: take out only for testing
+//                 self.segueToApp()
             }
         }
+    
+    }
+    
+    func checkSignUpFields() -> Bool {
+        if (_userEmail.text == "" || _userEmail.text == nil) {
+            self.showAlert("Please enter a valid email.")
+            _userEmail.text = ""
+            _userPassword.text = ""
+            _userConfirmPassword.text = ""
+            return false
+        } else if (_userEmail.text.hasSuffix(".edu")) {
+            self.showAlert("Please enter a '.edu' email.")
+            _userEmail.text = ""
+            _userPassword.text = ""
+            _userConfirmPassword.text = ""
+            return false
+        } else if (_userPassword.text == "" || _userPassword.text != nil) {
+            self.showAlert("Please enter a passwords.")
+            _userPassword.text = ""
+            _userConfirmPassword.text = ""
+            return false
+        } else if (_userConfirmPassword.text == "" || _userConfirmPassword.text != nil) {
+            self.showAlert("Please enter a passwords.")
+            _userPassword.text = ""
+            _userConfirmPassword.text = ""
+            return false
+        } else if (_userPassword.text != _userConfirmPassword.text) {
+            self.showAlert("Passwords don't match. Please try again.")
+            _userPassword.text = ""
+            _userConfirmPassword.text = ""
+            return false
+        }
         
-        
-        
+        return true
     }
     
     @IBAction func newUserButtonPressed(sender: AnyObject) {
