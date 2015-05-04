@@ -17,6 +17,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var _userSkill1: UILabel!
     @IBOutlet weak var _userSkill2: UILabel!
     @IBOutlet weak var _userSkill3: UILabel!
+    @IBOutlet weak var _userDescription: UITextView!
     
     // Boolean - is this your profile or someone else's?
     internal var isSelf = false
@@ -30,7 +31,7 @@ class ProfileViewController: UIViewController {
     private var userSkill1 = "Default"
     private var userSkill2 = "Default"
     private var userSkill3 = "Default"
-    
+    private var userDescription = "Default"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +48,32 @@ class ProfileViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        let curUsr = UserController.currentUser
+        
+        UserController.getUser(UserController.currentUser, callback: { (user) -> Void in
+            self.setUpProfileWithUser(user)
+            
+            self.updateProfileFields()
+        })
+    }
+    
+    func setUpProfileWithUser(usr:User!) {
+        userImage = UIImage(named: "placeholder.png")
+        userName = usr._firstName! + " " + usr._lastName!
+        userTagLine = usr._tagline!
+        userDescription = usr._description!
+    }
+    
+    func updateProfileFields() {
+        _userImage.image = userImage
+        _userName.text = userName
+        _userTagLine.text = userTagLine
+        _userDescription.text = userDescription
+    }
+    
     override func viewDidAppear(animated: Bool) {
-         firstTimeUser ? editProfile() : saveProfile()
+        firstTimeUser ? editProfile() : saveProfile()
     }
 
     override func didReceiveMemoryWarning() {

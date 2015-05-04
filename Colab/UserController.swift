@@ -67,7 +67,8 @@ class UserController: NSObject {
     
     class func checkIfLoggedIn() -> Bool {
         let defaults = NSUserDefaults.standardUserDefaults()
-        return (defaults.objectForKey("email") != nil && defaults.objectForKey("_id") != nil)
+        userID = defaults.objectForKey("_id") as? String
+        return (defaults.objectForKey("email") != nil && userID != nil)
     }
 
 
