@@ -400,8 +400,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fCp-93-Z3D">
-                                <rect key="frame" x="67" y="97" width="332" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fCp-93-Z3D">
+                                <rect key="frame" x="16" y="97" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -409,7 +409,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWJ-4K-4hr">
-                                <rect key="frame" x="70" y="266" width="42" height="30"/>
+                                <rect key="frame" x="22" y="294" width="42" height="30"/>
                                 <state key="normal" title="Skill 1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -418,7 +418,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QaD-Ln-3vf">
-                                <rect key="frame" x="142" y="266" width="42" height="30"/>
+                                <rect key="frame" x="94" y="294" width="42" height="30"/>
                                 <state key="normal" title="Skill 2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -426,8 +426,8 @@
                                     <action selector="Skill2Touched:" destination="xGQ-Em-tZb" eventType="valueChanged" id="qhp-V3-f2R"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhM-ht-NLi">
-                                <rect key="frame" x="207" y="266" width="42" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhM-ht-NLi">
+                                <rect key="frame" x="159" y="294" width="42" height="30"/>
                                 <state key="normal" title="Skill 3">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -435,32 +435,27 @@
                                     <action selector="Skill3Touched:" destination="xGQ-Em-tZb" eventType="valueChanged" id="jhb-dD-T3f"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add New Skill" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jVa-YC-wPu">
-                                <rect key="frame" x="67" y="304" width="332" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add New Skill" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jVa-YC-wPu">
+                                <rect key="frame" x="16" y="332" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="projectAddSkills:" destination="xGQ-Em-tZb" eventType="valueChanged" id="bcU-cu-Qni"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0s-BS-anN">
-                                <rect key="frame" x="67" y="163" width="332" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0s-BS-anN">
+                                <rect key="frame" x="16" y="156" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="bTC-gz-Mgj"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="projectDescriptionEdited:" destination="xGQ-Em-tZb" eventType="editingDidEnd" id="gHG-Iq-jGA"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contributer Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfg-LT-8bY">
-                                <rect key="frame" x="67" y="406" width="332" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="projectAddCollaborators:" destination="xGQ-Em-tZb" eventType="editingDidEnd" id="BJQ-CT-knE"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iT-zP-Slz">
-                                <rect key="frame" x="70" y="353" width="61" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iT-zP-Slz">
+                                <rect key="frame" x="22" y="370" width="61" height="30"/>
                                 <state key="normal" title="Add Skill">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -469,7 +464,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4A-rm-CUm">
-                                <rect key="frame" x="67" y="462" width="34" height="30"/>
+                                <rect key="frame" x="22" y="480" width="34" height="30"/>
                                 <state key="normal" title="Save">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -477,8 +472,34 @@
                                     <action selector="SubmitButtonPressed:" destination="xGQ-Em-tZb" eventType="valueChanged" id="h4C-qu-b2C"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contributer Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfg-LT-8bY">
+                                <rect key="frame" x="16" y="423" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="568" id="A03-8v-Tta"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="projectAddCollaborators:" destination="xGQ-Em-tZb" eventType="editingDidEnd" id="BJQ-CT-knE"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f0s-BS-anN" firstAttribute="leading" secondItem="WID-z5-ZGG" secondAttribute="leadingMargin" id="2Xb-jz-c3f"/>
+                            <constraint firstItem="3iT-zP-Slz" firstAttribute="top" secondItem="jVa-YC-wPu" secondAttribute="bottom" constant="16" id="3Of-LB-nQU"/>
+                            <constraint firstItem="fCp-93-Z3D" firstAttribute="top" secondItem="j1q-vN-yIx" secondAttribute="bottom" constant="8" id="3eD-B9-Ehc"/>
+                            <constraint firstItem="f0s-BS-anN" firstAttribute="top" secondItem="fCp-93-Z3D" secondAttribute="bottom" constant="16" id="5dV-0D-2bV"/>
+                            <constraint firstItem="fCp-93-Z3D" firstAttribute="leading" secondItem="WID-z5-ZGG" secondAttribute="leadingMargin" id="Ent-zj-lKF"/>
+                            <constraint firstItem="f0s-BS-anN" firstAttribute="top" secondItem="fCp-93-Z3D" secondAttribute="bottom" constant="8" id="L2q-fC-MwD"/>
+                            <constraint firstItem="jVa-YC-wPu" firstAttribute="top" secondItem="OhM-ht-NLi" secondAttribute="bottom" constant="16" id="Utl-rC-BlE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fCp-93-Z3D" secondAttribute="trailing" id="beM-nF-ZWr"/>
+                            <constraint firstItem="f0s-BS-anN" firstAttribute="top" secondItem="fCp-93-Z3D" secondAttribute="bottom" constant="8" id="ey5-1i-18Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f0s-BS-anN" secondAttribute="trailing" id="gJH-wD-WqJ"/>
+                            <constraint firstItem="OhM-ht-NLi" firstAttribute="top" secondItem="f0s-BS-anN" secondAttribute="bottom" constant="8" id="riT-Le-znh"/>
+                            <constraint firstItem="3iT-zP-Slz" firstAttribute="top" secondItem="jVa-YC-wPu" secondAttribute="bottom" constant="16" id="ssD-cx-AoS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jVa-YC-wPu" secondAttribute="trailing" id="t7V-ER-ROn"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="projectContributors" destination="zfg-LT-8bY" id="DFT-bl-JaA"/>
