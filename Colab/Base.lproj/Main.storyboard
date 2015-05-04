@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b1O-Jx-be7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b1O-Jx-be7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -381,7 +381,7 @@
                         <outlet property="_userSkill3" destination="CGS-HV-wA2" id="0Ct-1I-J92"/>
                         <outlet property="_userTagLine" destination="cXg-8d-84v" id="wWZ-BW-Pdr"/>
                         <segue destination="DGp-Kp-kbP" kind="show" identifier="setUpProfile" id="HUX-JQ-Jbg"/>
-                        <segue destination="xGQ-Em-tZb" kind="show" identifier="presentAddProjectView" id="s2J-H1-VXR"/>
+                        <segue destination="xGQ-Em-tZb" kind="presentation" identifier="presentAddProjectView" id="xus-V4-UfD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npw-u4-GY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -391,7 +391,7 @@
         <!--Add Project View Controller-->
         <scene sceneID="dgy-bP-71y">
             <objects>
-                <viewController id="xGQ-Em-tZb" customClass="AddProjectViewController" customModule="Colab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddProjectViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xGQ-Em-tZb" customClass="AddProjectViewController" customModule="Colab" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j1q-vN-yIx"/>
                         <viewControllerLayoutGuide type="bottom" id="AQV-5r-2Al"/>
@@ -410,7 +410,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWJ-4K-4hr">
                                 <rect key="frame" x="70" y="266" width="42" height="30"/>
-                                <state key="normal" title="Skill 1">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -419,7 +419,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QaD-Ln-3vf">
                                 <rect key="frame" x="142" y="266" width="42" height="30"/>
-                                <state key="normal" title="Skill 2">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -428,7 +428,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OhM-ht-NLi">
                                 <rect key="frame" x="207" y="266" width="42" height="30"/>
-                                <state key="normal" title="Skill 3">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -465,7 +465,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="AddNewSkill:" destination="xGQ-Em-tZb" eventType="valueChanged" id="sti-VC-mgX"/>
+                                    <action selector="AddNewSkill:" destination="xGQ-Em-tZb" eventType="touchUpInside" id="6fM-JP-B4I"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4A-rm-CUm">
@@ -481,12 +481,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="projectContributors" destination="zfg-LT-8bY" id="DFT-bl-JaA"/>
-                        <outlet property="projectDescription" destination="f0s-BS-anN" id="36O-nK-pxE"/>
-                        <outlet property="projectName" destination="fCp-93-Z3D" id="EpI-fY-9WK"/>
-                        <outlet property="projectSkill1" destination="CWJ-4K-4hr" id="gar-ye-vol"/>
-                        <outlet property="projectSkill2" destination="QaD-Ln-3vf" id="SdE-RA-DcD"/>
-                        <outlet property="projectSkill3" destination="OhM-ht-NLi" id="7fx-Fz-MPu"/>
+                        <outlet property="_addSkillButton" destination="3iT-zP-Slz" id="xe7-bX-Npa"/>
+                        <outlet property="_projectAddNewSkill" destination="jVa-YC-wPu" id="aag-x8-hl7"/>
+                        <outlet property="_projectContributors" destination="zfg-LT-8bY" id="TgN-9p-SPe"/>
+                        <outlet property="_projectDescription" destination="f0s-BS-anN" id="Jp6-7P-6VZ"/>
+                        <outlet property="_projectName" destination="fCp-93-Z3D" id="Fwg-SJ-zXA"/>
+                        <outlet property="_projectSkill1" destination="CWJ-4K-4hr" id="4yP-ES-6z0"/>
+                        <outlet property="_projectSkill2" destination="QaD-Ln-3vf" id="naJ-xx-MhM"/>
+                        <outlet property="_projectSkill3" destination="OhM-ht-NLi" id="lTd-N4-pdj"/>
+                        <outlet property="_submit" destination="f4A-rm-CUm" id="RFo-Gn-nVr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gh7-gx-XY0" userLabel="First Responder" sceneMemberID="firstResponder"/>
