@@ -61,7 +61,9 @@ class AddProjectViewController: UIViewController {
         
     }
     
-    func Skill1Touched(sender: UIButton) {
+    /* TODO: be able to remove skills once added. */
+    
+    @IBAction func Skill1Touched(sender: UIButton) {
         if skill1IsSelected == false {
             sender.highlighted = true;
             skill1IsSelected = true
@@ -71,7 +73,7 @@ class AddProjectViewController: UIViewController {
         }
     }
     
-    func Skill2Touched(sender: UIButton) {
+    @IBAction func Skill2Touched(sender: UIButton) {
         if skill2IsSelected == false{
             sender.highlighted = true;
             skill2IsSelected = true
@@ -82,7 +84,7 @@ class AddProjectViewController: UIViewController {
         
     }
     
-    func Skill3Touched(sender: UIButton) {
+    @IBAction func Skill3Touched(sender: UIButton) {
         
         if skill3IsSelected == false{
             sender.highlighted = true;

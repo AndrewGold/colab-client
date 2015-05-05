@@ -98,12 +98,12 @@ class UserLoginViewController: UIViewController {
             _userConfirmPassword.text = ""
             return false
         } else if (_userPassword.text == "" || _userPassword.text != nil) {
-            self.showAlert("Please enter a passwords.")
+            self.showAlert("Please enter a password.")
             _userPassword.text = ""
             _userConfirmPassword.text = ""
             return false
         } else if (_userConfirmPassword.text == "" || _userConfirmPassword.text != nil) {
-            self.showAlert("Please enter a passwords.")
+            self.showAlert("Please enter a password.")
             _userPassword.text = ""
             _userConfirmPassword.text = ""
             return false
