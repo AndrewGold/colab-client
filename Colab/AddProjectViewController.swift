@@ -13,9 +13,11 @@ class AddProjectViewController: UIViewController {
     @IBOutlet weak var _projectName: UITextField!
     @IBOutlet weak var _projectDescription: UITextField!
     
-    @IBOutlet weak var _projectSkill1: UIButton!
-    @IBOutlet weak var _projectSkill2: UIButton!
-    @IBOutlet weak var _projectSkill3: UIButton!
+   
+    @IBOutlet weak var _projectSkill1: UILabel!
+    @IBOutlet weak var _projectSkill2: UILabel!
+    @IBOutlet weak var _projectSkill3: UILabel!
+    
     @IBOutlet weak var _projectAddNewSkill: UITextField!
     @IBOutlet weak var _addSkillButton: UIButton!
     
@@ -36,19 +38,19 @@ class AddProjectViewController: UIViewController {
         if (_projectAddNewSkill.hasText()) {
             switch skillIndex {
             case 1:
-                _projectSkill1.setTitle(_projectAddNewSkill.text, forState: UIControlState.Normal)
+                _projectSkill1.text = _projectAddNewSkill.text
                 _projectSkill1.sizeToFit()
                 skills += [_projectAddNewSkill.text]
                 _projectAddNewSkill.text = ""
                 skillIndex++
             case 2:
-                _projectSkill2.setTitle(_projectAddNewSkill.text, forState: UIControlState.Normal)
+                _projectSkill2.text = _projectAddNewSkill.text
                 _projectSkill2.sizeToFit()
                 skills += [_projectAddNewSkill.text]
                 _projectAddNewSkill.text = ""
                 skillIndex++
             case 3:
-                _projectSkill3.setTitle(_projectAddNewSkill.text, forState: UIControlState.Normal)
+                _projectSkill3.text = _projectAddNewSkill.text
                 _projectSkill3.sizeToFit()
                 skills += [_projectAddNewSkill.text]
                 _projectAddNewSkill.text = ""
@@ -133,6 +135,10 @@ class AddProjectViewController: UIViewController {
             let notification = NSNotification(name: Constants.notifications.kNewProjectNotification, object: project, userInfo: nil)
             NSNotificationCenter.defaultCenter().postNotification(notification)
         }
+    }
+    
+    @IBAction func prepareForUnwind(segue:UIStoryboardSegue) {
+        print("unwind")
     }
     
 };

@@ -156,5 +156,9 @@ class ProfileViewController: UIViewController {
         let vc = storyboard.instantiateViewControllerWithIdentifier("AddProjectViewController") as! UIViewController
         self.presentViewController(vc, animated: true, completion: nil)
     }
+    
+    func prepareForUnwind(segue:UIStoryboardSegue) {
+        print("unwind")
+    }
 
 }
