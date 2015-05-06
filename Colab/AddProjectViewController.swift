@@ -19,6 +19,7 @@ class AddProjectViewController: UIViewController {
     @IBOutlet weak var _projectAddNewSkill: UITextField!
     @IBOutlet weak var _addSkillButton: UIButton!
     
+    @IBOutlet weak var _collaboratorList: UILabel!
     @IBOutlet weak var _projectContributors: UITextField?
     
     @IBOutlet weak var _submit: UIButton!
@@ -27,6 +28,7 @@ class AddProjectViewController: UIViewController {
     var skill2IsSelected:Bool = false;
     var skill3IsSelected:Bool = false;
     var skills = [String]();
+    var collaborators = [String]();
     
     var skillIndex = 1;
     
@@ -59,49 +61,55 @@ class AddProjectViewController: UIViewController {
         
     }
     
-    func Skill1Touched(sender: UIButton) {
-        if skill1IsSelected == false{
+    /* TODO: be able to remove skills once added. */
+    
+    @IBAction func Skill1Touched(sender: UIButton) {
+        if skill1IsSelected == false {
             sender.highlighted = true;
             skill1IsSelected = true
-            //skills.append(skill1);        /* skill1 needs to be changed to the skill coming in */
-        }else{
+        } else {
             sender.highlighted = false;
             skill1IsSelected = false
-            //skills.removeAtIndex(find skill1 in array)`        /* Find skill in array */
         }
-        
     }
     
-    func Skill2Touched(sender: UIButton) {
+    @IBAction func Skill2Touched(sender: UIButton) {
         if skill2IsSelected == false{
             sender.highlighted = true;
             skill2IsSelected = true
-            //skills.append(skill3);        /* skill1 needs to be changed to the skill coming in */
-        }else{
+        } else {
             sender.highlighted = false;
             skill2IsSelected = false
-            //skills.removeAtIndex(find skill3 in array)`        /* Find skill in array */
         }
         
     }
     
-    func Skill3Touched(sender: UIButton) {
+    @IBAction func Skill3Touched(sender: UIButton) {
         
         if skill3IsSelected == false{
             sender.highlighted = true;
-            skill3IsSelected = true
-            //skills.append(skill3);        /* skill1 needs to be changed to the skill coming in */
-        }else{
+            skill3IsSelected = true;
+        } else {
             sender.highlighted = false;
-            skill3IsSelected = false
-            //skills.removeAtIndex(find skill3 in array)`        /* Find skill in array */
+            skill3IsSelected = false;
         }
     }
     
-    func getCollaborators() -> [String]! {
-        // Parse users from _projectCollaborators and get userIDs of the users.
+    func AddCollaboratorTouched(sender: UIButton) {
+        _collaboratorList.text! = "";
         
-        return [];
+        if ((_projectContributors?.hasText()) != nil) {
+            collaborators.append(_projectContributors!.text);
+            
+            _collaboratorList.text = "Collaborators: ";
+            
+            for _projectContributors in collaborators {
+                _collaboratorList.text! += _projectContributors;
+                _collaboratorList.text! += ", ";
+            }
+            
+            _projectContributors!.text = nil;
+        }
     }
     
     
@@ -112,7 +120,7 @@ class AddProjectViewController: UIViewController {
         project._title = _projectName.text;
         project._description = _projectDescription.text;
         project._owner = UserController.currentUser;
-        project._users = getCollaborators();
+        project._users = collaborators;
         
         var params = [String:AnyObject]()
         params["project"] = project.serialize()
