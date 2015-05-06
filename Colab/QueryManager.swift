@@ -13,7 +13,7 @@ class QueryManager: NSObject {
     let _requestManager = AFHTTPRequestOperationManager()
     //Local - http://127.0.0.1:8080
     //Remote - http://co-llab.herokuapp.com
-    let _URL = "http://127.0.0.1:8080"
+    let _URL = "http://co-llab.herokuapp.com"
     
     class var sharedInstance: QueryManager {
         return _managerSharedInstance
