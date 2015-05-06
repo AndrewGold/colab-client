@@ -404,9 +404,6 @@
                                 <rect key="frame" x="16" y="45" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="projectNameEdited:" destination="xGQ-Em-tZb" eventType="editingDidEnd" id="b5a-OC-lSa"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWJ-4K-4hr">
                                 <rect key="frame" x="16" y="173" width="61" height="30"/>
@@ -459,9 +456,6 @@
                                 <rect key="frame" x="16" y="108" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="projectDescriptionEdited:" destination="xGQ-Em-tZb" eventType="editingDidEnd" id="gHG-Iq-jGA"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contributer Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfg-LT-8bY">
                                 <rect key="frame" x="16" y="335" width="568" height="30"/>
@@ -489,7 +483,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="SubmitButtonPressed:" destination="xGQ-Em-tZb" eventType="valueChanged" id="h4C-qu-b2C"/>
+                                    <action selector="submitButtonPressed:" destination="xGQ-Em-tZb" eventType="touchUpInside" id="2T8-19-NbY"/>
                                 </connections>
                             </button>
                         </subviews>

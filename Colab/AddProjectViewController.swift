@@ -105,7 +105,7 @@ class AddProjectViewController: UIViewController {
     }
     
     
-    func submitButtonPressed(sender: AnyObject) {
+    @IBAction func submitButtonPressed(sender: AnyObject) {
         
         let project = Project();
         
@@ -114,9 +114,12 @@ class AddProjectViewController: UIViewController {
         project._owner = UserController.currentUser;
         project._users = getCollaborators();
         
-        project.serialize();
+        var params = [String:AnyObject]()
+        params["project"] = project.serialize()
+        params["user"] = UserController.currentUser
+        params["skills"] = skills
         
-        QueryManager.sharedInstance.POST(["projects": _projectName.text], url: Constants.URLsuffix.updateUserInfo) {
+        QueryManager.sharedInstance.POST(params, url: Constants.URLsuffix.addProject) {
             (responseObject) -> Void in
             
             let notification = NSNotification(name: Constants.notifications.kNewProjectNotification, object: project, userInfo: nil)

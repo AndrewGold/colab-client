@@ -45,14 +45,17 @@ class UserController: NSObject {
         }
     }
     
-    class func getUser(id: String!, callback: (User) -> Void) {
+    class func getUser(id: String!, callback: (User?) -> Void) {
         
         var parameters = [String:String]()
         parameters["user"] = id
         
         QueryManager.sharedInstance.POST(parameters, url: Constants.URLsuffix.getUser) { (responseObject) -> Void in
-            var userDict = responseObject["user"] as! NSDictionary
-            callback(User.deserialize(userDict))
+            if let userDict = responseObject["user"] as? NSDictionary {
+                callback(User.deserialize(userDict))
+            } else {
+                callback(nil)
+            }
         }
     }
     

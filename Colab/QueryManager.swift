@@ -11,7 +11,9 @@ private let _managerSharedInstance = QueryManager()
 class QueryManager: NSObject {
     
     let _requestManager = AFHTTPRequestOperationManager()
-    let _URL = "http://co-llab.herokuapp.com"
+    //Local - http://127.0.0.1:8080
+    //Remote - http://co-llab.herokuapp.com
+    let _URL = "http://127.0.0.1:8080"
     
     class var sharedInstance: QueryManager {
         return _managerSharedInstance
@@ -45,7 +47,7 @@ class QueryManager: NSObject {
             print(obj)
             callback(obj)
             }, failure: { (operation, err) -> Void in
-                print(err)
+            print(err)
             callback(err)
         })
     }
