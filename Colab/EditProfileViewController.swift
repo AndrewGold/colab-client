@@ -26,8 +26,9 @@ class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _description.layer.borderWidth = 5.0
+        _description.layer.borderWidth = 1.0
         _description.layer.borderColor = UIColor.grayColor().CGColor
+        _description.textColor = UIColor.blackColor()
         
         if(!firstTimeUser) {
             loadUserInfo()
@@ -61,9 +62,10 @@ class EditProfileViewController: UIViewController {
         
         QueryManager.sharedInstance.POST(params, url: Constants.URLsuffix.updateUserInfo) { (responseObject) -> Void in
             print(responseObject)
+            
+            self.performSegueWithIdentifier("unwindToProfile", sender: self)
         }
         
-        self.performSegueWithIdentifier("unwindToProfile", sender: self)
     }
     
     @IBAction func unwindToProfile(segue:UIStoryboardSegue) {
