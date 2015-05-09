@@ -50,7 +50,7 @@ class UserLoginViewController: UIViewController {
             URLsuffix = Constants.URLsuffix.login
         }
         
-        if (newUser == true) {
+        /*if (newUser == true) {
             var done = false
             while (!done) {
                 if (checkSignUpFields() == true) {
@@ -58,32 +58,36 @@ class UserLoginViewController: UIViewController {
                 }
             }
             
-        }
+        }*/
         
-        QueryManager.sharedInstance.POST(["email": _userEmail.text, "password": _userPassword.text], url: URLsuffix) { (responseObject) -> Void in
-            print(responseObject)
-            if let status: AnyObject? = responseObject["status"] {
-                if (self._userEmail.text == "" || self._userEmail.text == nil ||
-                    self._userPassword.text == "" || self._userPassword.text != nil) {
-                    self.showAlert("Incorrect username or password. Please try again.")
-                } else if (Int(status as! NSNumber) == 0) {
-                    UserController.setUserID(responseObject["userId"] as! String)
-                    UserController.storeLoginInformation(self._userEmail.text, id: responseObject["userId"] as! String)
-                
-                    self.segueToApp()
+        checkSignUpFields()
+        
+        //if (newUser == false || checkSignUpFields() == true) {
+            QueryManager.sharedInstance.POST(["email": _userEmail.text, "password": _userPassword.text], url: URLsuffix) { (responseObject) -> Void in
+                print(responseObject)
+                if let status: AnyObject? = responseObject["status"] {
+                    if (self._userEmail.text == "" || self._userEmail.text == nil ||
+                        self._userPassword.text == "" || self._userPassword.text == nil) {
+                            self.showAlert("Incorrect username or password. Please try again.")
+                    } else if (Int(status as! NSNumber) == 0) {
+                        UserController.setUserID(responseObject["userId"] as! String)
+                        UserController.storeLoginInformation(self._userEmail.text, id: responseObject["userId"] as! String)
+                        
+                        self.segueToApp()
+                    } else {
+                        self.showAlert("Incorrect username or password. Please try again.")
+                        //
+                        //                     // TODO: take out only for testing
+                        //                     self.segueToApp()
+                    }
                 } else {
-                    self.showAlert("Incorrect username or password. Please try again.")
-//                    
-//                     // TODO: take out only for testing
-//                     self.segueToApp()
+                    self.showAlert("Network error. Please make sure you are connected to the internet and try again.")
+                    //
+                    //                 // TODO: take out only for testing
+                    //                 self.segueToApp()
                 }
-            } else {
-                self.showAlert("Network error. Please make sure you are connected to the internet and try again.")
-//
-//                 // TODO: take out only for testing
-//                 self.segueToApp()
             }
-        }
+        //}
     }
     
     func checkSignUpFields() -> Bool {
@@ -93,18 +97,18 @@ class UserLoginViewController: UIViewController {
             _userPassword.text = ""
             _userConfirmPassword.text = ""
             return false
-        } else if (_userEmail.text.hasSuffix(".edu")) {
+        } else if (_userEmail.text.hasSuffix(".edu") == false) {
             self.showAlert("Please enter a '.edu' email.")
             _userEmail.text = ""
             _userPassword.text = ""
             _userConfirmPassword.text = ""
             return false
-        } else if (_userPassword.text == "" || _userPassword.text != nil) {
+        } else if (_userPassword.text == "" || _userPassword.text == nil) {
             self.showAlert("Please enter a password.")
             _userPassword.text = ""
             _userConfirmPassword.text = ""
             return false
-        } else if (_userConfirmPassword.text == "" || _userConfirmPassword.text != nil) {
+        } else if (_userConfirmPassword.text == "" || _userConfirmPassword.text == nil) {
             self.showAlert("Please enter a password.")
             _userPassword.text = ""
             _userConfirmPassword.text = ""
