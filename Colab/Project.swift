@@ -8,7 +8,7 @@
 
 class Project: NSObject {
     
-    var _title:String!
+    var _title:String?
     var _description:String?
     var _owner:String?
     var _users:[String]?
@@ -31,13 +31,26 @@ class Project: NSObject {
     }
     
     class func deserialize(project:NSDictionary) -> Project {
-        let proj = Project(title: project[Constants.projectKeys.title] as! String)
+        let projDict = project.valueForKey("project") as! NSDictionary
+        var proj:Project?
         
-        proj._description = project[Constants.projectKeys.description] as? String
-        proj._owner = project[Constants.projectKeys.owner] as? String
-        proj._users = project[Constants.projectKeys.users] as? [String]
+        if(projDict[Constants.projectKeys.title] != nil) {
+            proj = Project(title: projDict[Constants.projectKeys.title] as? String)
+        } else {
+            proj = Project(title: "No Title")
+        }
         
-        return proj
+        if(projDict[Constants.projectKeys.description] != nil) {
+            proj!._description = projDict[Constants.projectKeys.description] as? String
+        }
+        if(projDict[Constants.projectKeys.owner] != nil) {
+            proj!._owner = projDict[Constants.projectKeys.owner] as? String
+        }
+        if(projDict[Constants.projectKeys.users] != nil) {
+            proj!._users = projDict[Constants.projectKeys.users] as? [String]
+        }
+        
+        return proj!
         
     }
 

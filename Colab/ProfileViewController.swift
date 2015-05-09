@@ -57,12 +57,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if(userImage != nil) {
             _userImage.image = userImage!
         }
-//        _userName.text = userName
-//        _userTagLine.text = userTagLine
-//        _userSkill1.text = userSkill1
-//        _userSkill2.text = userSkill2
-//        _userSkill3.text = userSkill3
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "newProjectAdded:", name:Constants.notifications.kNewProjectNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -75,7 +71,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.updateProfileFields()
         })
         
-        _projectTable.reloadData()
+        UserController.getUsersProjects(curUsr!, callback: { (project) -> Void in
+            print(project)
+            
+            self.usrProjects = project as? [Project]
+            self._projectTable.reloadData()
+        })
+        
     }
     
     func setUpProfileWithUser(usr:User!) {
@@ -195,20 +197,24 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    dynamic private func newProjectAdded(notification: NSNotification){
+        //Action take on Notification
+        UserController.getUsersProjects(curUsr!, callback: { (project) -> Void in
+            print(project)
+            
+            self.usrProjects = project as? [Project]
+            self._projectTable.reloadData()
+        })
+    }
+    
     // MARK: - Data source methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        UserController.getUsersProjects(curUsr!, callback: { (project) -> Void in
-            print(project)
-            
-            print("end")
-            
-        })
-        
         if(usrProjects == nil) {
             return 0
         }
+        
         return usrProjects!.count
     }
     

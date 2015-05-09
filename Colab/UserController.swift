@@ -34,6 +34,7 @@ class UserController: NSObject {
         
         QueryManager.sharedInstance.GET(nil, url: Constants.URLsuffix.getAllUsers) { (responseObject) -> Void in
             var result = [User]()
+            print(responseObject)
             if let userArray = responseObject["users"] as? NSArray {
                 for (var i = 0; i < userArray.count; i++) {
                     var user = User.deserialize(userArray[i] as! NSDictionary)
@@ -64,10 +65,11 @@ class UserController: NSObject {
         parameters["user"] = id
         
         QueryManager.sharedInstance.POST(parameters, url: Constants.URLsuffix.getUsersProjects) { (responseObject) -> Void in
-            
+            print(responseObject as! NSDictionary)
             var projects = [Project]()
+            
             if let dict = responseObject as? NSDictionary {
-                if let projectArray = responseObject.valueForKey("project") as? NSArray {
+                if let projectArray = responseObject.valueForKey("projects") as? NSArray {
                     for (var i = 0; i < projectArray.count; i++) {
                         var proj = Project.deserialize(projectArray[i] as! NSDictionary)
                         projects += [proj]
