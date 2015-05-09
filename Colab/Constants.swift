@@ -15,6 +15,7 @@ class Constants: NSObject {
         static let getAllUsers = "/getAllUsers"
         static let getUser = "/getUser"
         static let addProject = "/addProject"
+        static let getUsersProjects = "/getUsersProjects"
     }
     
     struct responseStatus {

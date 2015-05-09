@@ -59,6 +59,16 @@ class UserController: NSObject {
         }
     }
     
+    class func getUsersProjects(id: String!, callback: ([Project]?) -> Void) {
+        var parameters = [String:String]()
+        parameters["user"] = id
+        
+        QueryManager.sharedInstance.POST(parameters, url: Constants.URLsuffix.getUsersProjects) { (responseObject) -> Void in
+            print(responseObject)
+            callback(nil)
+        }
+    }
+    
     class func storeLoginInformation(email: String, id: String) {
         
         let defaults = NSUserDefaults.standardUserDefaults()
