@@ -83,6 +83,12 @@ class UserController: NSObject {
         userID = defaults.objectForKey("_id") as? String
         return (defaults.objectForKey("email") != nil && userID != nil)
     }
+    
+    class func logOutUser() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(nil, forKey: "_id")
+        defaults.synchronize()
+    }
 
 
 }
