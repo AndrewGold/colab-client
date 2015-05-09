@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // MARK: - Outlets
     @IBOutlet weak var _userImage: UIImageView!
     @IBOutlet weak var _userName: UITextField!
@@ -25,6 +25,8 @@ class ProfileViewController: UIViewController {
     internal var isSelf = false
     internal var firstTimeUser = true
     internal var curUsr:String?
+    
+    internal var usrProjects:[Project]?
     
     // Mark: - Private Variables
     private var userImage:UIImage?
@@ -72,6 +74,8 @@ class ProfileViewController: UIViewController {
             self.setUpProfileWithUser(user)
             self.updateProfileFields()
         })
+        
+        _projectTable.reloadData()
     }
     
     func setUpProfileWithUser(usr:User!) {
@@ -190,5 +194,33 @@ class ProfileViewController: UIViewController {
     @IBAction func unwindToLogInView(segue:UIStoryboardSegue) {
         
     }
+    
+    // MARK: - Data source methods
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        UserController.getUsersProjects(curUsr!, callback: { (project) -> Void in
+            self.usrProjects = project
+        })
+        
+        if(usrProjects == nil) {
+            return 0
+        }
+        return usrProjects!.count
+    }
+    
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("projectCell", forIndexPath: indexPath) as! CustomProjectTableViewCell
+        
+        if(usrProjects != nil) {
+            cell.setUpCell(usrProjects![indexPath.item])
+        }
+        
+        return cell
+    }
+
 
 }
