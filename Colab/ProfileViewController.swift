@@ -161,7 +161,11 @@ class ProfileViewController: UIViewController {
     }
     
     func prepareForUnwind(segue:UIStoryboardSegue) {
-        print("unwind")
+        
+    }
+    
+    @IBAction func unwindToLogInView(segue:UIStoryboardSegue) {
+        
     }
 
 }

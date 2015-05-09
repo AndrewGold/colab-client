@@ -345,7 +345,13 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="tBt-cf-gSj"/>
+                    <navigationItem key="navigationItem" id="tBt-cf-gSj">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="igu-ww-VER">
+                            <connections>
+                                <segue destination="dIf-dE-sx6" kind="unwind" unwindAction="unwindToLogInView:" id="9Tj-GS-t7b"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="_projectTable" destination="n3o-iX-Z4h" id="ful-dx-bex"/>
@@ -361,6 +367,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npw-u4-GY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dIf-dE-sx6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2164" y="-128"/>
         </scene>
@@ -379,7 +386,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fCp-93-Z3D">
                                 <rect key="frame" x="16" y="28" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f0s-BS-anN">
                                 <rect key="frame" x="16" y="78" width="568" height="100"/>
@@ -387,7 +394,7 @@
                                     <constraint firstAttribute="height" constant="100" id="bTC-gz-Mgj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iT-zP-Slz">
                                 <rect key="frame" x="16" y="300" width="61" height="23"/>
@@ -401,7 +408,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Collaborators" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfg-LT-8bY">
                                 <rect key="frame" x="16" y="375" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5Q-rI-Cae">
                                 <rect key="frame" x="16" y="413" width="118" height="30"/>
@@ -431,7 +438,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add New Skill" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jVa-YC-wPu">
                                 <rect key="frame" x="16" y="262" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkf-cB-wXx">
                                 <rect key="frame" x="73" y="209" width="42" height="21"/>
@@ -451,6 +458,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8j-2Z-3S1">
+                                <rect key="frame" x="277" y="513" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Spa-7A-IWE" kind="unwind" unwindAction="prepareForUnwind:" id="av2-WQ-jKp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -616,11 +632,11 @@
             </objects>
             <point key="canvasLocation" x="708" y="14"/>
         </scene>
-        <!--Item-->
+        <!--Search-->
         <scene sceneID="d3k-Lx-k2u">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="brf-bR-Fa8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="8Cr-bt-ZbM"/>
+                    <tabBarItem key="tabBarItem" title="Search" selectedImage="bubble_min_tailless.png" id="8Cr-bt-ZbM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gLp-1J-Dzs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -635,11 +651,11 @@
             </objects>
             <point key="canvasLocation" x="1468" y="516"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="tOc-CW-0ZC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="acX-Yl-raO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="e7Y-2Q-Flz"/>
+                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="bubble_min.png" id="e7Y-2Q-Flz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ldg-7x-YJJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -655,7 +671,11 @@
             <point key="canvasLocation" x="1468" y="-128"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bubble_min.png" width="48" height="35"/>
+        <image name="bubble_min_tailless.png" width="48" height="35"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wod-zV-qlL"/>
+        <segue reference="6er-Dd-vyR"/>
     </inferredMetricsTieBreakers>
 </document>
