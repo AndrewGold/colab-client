@@ -15,15 +15,29 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var _tagLine: UITextField!
     @IBOutlet weak var _description: UITextView!
     
+    // Used to store variables before view loads
+    var firstName:String?
+    var lastName:String?
+    var tagLine:String?
+    var usrDescription:String?
+    
+    var firstTimeUser = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        _description.layer.borderWidth = 5.0
+        _description.layer.borderColor = UIColor.grayColor().CGColor
+        
+        if(!firstTimeUser) {
+            loadUserInfo()
+        } else { // remove back button, HAVE to save info
+            self.navigationItem.leftBarButtonItem = nil
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
-         let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveInformation"  )
+        let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveInformation"  )
         
         self.navigationItem.rightBarButtonItem = saveButton
 
@@ -49,6 +63,18 @@ class EditProfileViewController: UIViewController {
             print(responseObject)
         }
         
+        self.performSegueWithIdentifier("unwindToProfile", sender: self)
+    }
+    
+    @IBAction func unwindToProfile(segue:UIStoryboardSegue) {
+        
+    }
+    
+    private func loadUserInfo() {
+        _firstName.text = firstName!
+        _lastName.text = lastName!
+        _description.text = usrDescription!
+        _tagLine.text = tagLine!
     }
 
     /*

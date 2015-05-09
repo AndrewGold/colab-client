@@ -29,6 +29,8 @@ class ProfileViewController: UIViewController {
     // Mark: - Private Variables
     private var userImage:UIImage?
     private var userName:String! = "Default"
+    private var firstName:String! = "Defualt"
+    private var lastName:String! = "Defualt"
     private var userTagLine:String! = "Default"
     private var userSkill1 = "Default"
     private var userSkill2 = "Default"
@@ -62,12 +64,21 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-       self.updateProfileFields()
+        if(isSelf) {
+            curUsr = UserController.currentUser
+        }
+        
+        UserController.getUser(curUsr, callback: { (user) -> Void in
+            self.setUpProfileWithUser(user)
+            self.updateProfileFields()
+        })
     }
     
     func setUpProfileWithUser(usr:User!) {
         userImage = UIImage(named: "placeholder.png")
-        userName = usr._firstName! + " " + usr._lastName!
+        firstName = usr._firstName!
+        lastName = usr._lastName!
+        userName = firstName + " " + lastName
         userTagLine = usr._tagline!
         userDescription = usr._description!
     }
@@ -109,9 +120,6 @@ class ProfileViewController: UIViewController {
     }
     
     func editProfile() {
-        _userName.enabled = true
-        _userTagLine.enabled = true
-        
         var editButton:UIBarButtonItem?
         
         if (isSelf) {
@@ -144,15 +152,30 @@ class ProfileViewController: UIViewController {
         
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if(segue.identifier == "setUpProfile") {
+            if(firstTimeUser) {
+                firstTimeUser = false
+            } else {
+                if let editController = segue.destinationViewController as? EditProfileViewController {
+                    editController.firstName = firstName
+                    editController.lastName = lastName
+                    editController.usrDescription = userDescription
+                    editController.tagLine = userTagLine
+                    
+                    editController.firstTimeUser = false
+                }
+            }
+        }
     }
-    */
+    
     @IBAction func addProjectButtonPressed(sender: AnyObject) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -160,7 +183,7 @@ class ProfileViewController: UIViewController {
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
-    func prepareForUnwind(segue:UIStoryboardSegue) {
+    func unwindToProfile(segue:UIStoryboardSegue) {
         
     }
     
