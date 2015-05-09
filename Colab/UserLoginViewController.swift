@@ -49,11 +49,11 @@ class UserLoginViewController: UIViewController {
         } else {
             URLsuffix = Constants.URLsuffix.login
         }
-        
-        
-        
+    
+        /* This line is for debugging*/
         checkSignUpFields()
         
+        /*Uncomment when working*/
         //if (newUser == false || checkSignUpFields() == true) {
             QueryManager.sharedInstance.POST(["email": _userEmail.text, "password": _userPassword.text], url: URLsuffix) { (responseObject) -> Void in
                 print(responseObject)
