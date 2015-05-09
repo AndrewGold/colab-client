@@ -50,15 +50,7 @@ class UserLoginViewController: UIViewController {
             URLsuffix = Constants.URLsuffix.login
         }
         
-        /*if (newUser == true) {
-            var done = false
-            while (!done) {
-                if (checkSignUpFields() == true) {
-                    done = true
-                }
-            }
-            
-        }*/
+        
         
         checkSignUpFields()
         
