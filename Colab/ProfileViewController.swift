@@ -19,6 +19,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var _userSkill3: UILabel!
     @IBOutlet weak var _userDescription: UITextView!
     
+    @IBOutlet weak var _projectTable: UITableView!
+    
     // Boolean - is this your profile or someone else's?
     internal var isSelf = false
     internal var firstTimeUser = true
@@ -28,7 +30,6 @@ class ProfileViewController: UIViewController {
     private var userImage:UIImage?
     private var userName:String! = "Default"
     private var userTagLine:String! = "Default"
-    private var userScore:String! = "0"
     private var userSkill1 = "Default"
     private var userSkill2 = "Default"
     private var userSkill3 = "Default"
@@ -36,29 +37,32 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        _projectTable.contentInset = UIEdgeInsetsZero
         
-        if(userImage != nil) {
-            _userImage.image = userImage!
-        }
-        _userName.text = userName
-        _userTagLine.text = userTagLine
-        _userScore.text = userScore
-        _userSkill1.text = userSkill1
-        _userSkill2.text = userSkill2
-        _userSkill3.text = userSkill3
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
         if(isSelf) {
             curUsr = UserController.currentUser
         }
         
         UserController.getUser(curUsr, callback: { (user) -> Void in
             self.setUpProfileWithUser(user)
-            
             self.updateProfileFields()
         })
+        
+        
+        
+        if(userImage != nil) {
+            _userImage.image = userImage!
+        }
+//        _userName.text = userName
+//        _userTagLine.text = userTagLine
+//        _userSkill1.text = userSkill1
+//        _userSkill2.text = userSkill2
+//        _userSkill3.text = userSkill3
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+       self.updateProfileFields()
     }
     
     func setUpProfileWithUser(usr:User!) {
@@ -88,7 +92,6 @@ class ProfileViewController: UIViewController {
         userImage = cell._userImage.image
         userName = cell._userName.text!
         userTagLine = cell._userTagline.text!
-        userScore = cell._userScore.text!
         
         if cell._userSkill1.text != nil {
             userSkill1 = cell._userSkill1.text!
