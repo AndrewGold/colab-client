@@ -151,7 +151,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaj-a0-vBE">
-                                <rect key="frame" x="16" y="255" width="568" height="237"/>
+                                <rect key="frame" x="16" y="255" width="568" height="293"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
@@ -167,7 +167,7 @@
                             <constraint firstItem="mFs-cT-PDV" firstAttribute="top" secondItem="CfI-1Z-VyU" secondAttribute="bottom" constant="23" id="ScH-aa-5Qk"/>
                             <constraint firstItem="CfI-1Z-VyU" firstAttribute="leading" secondItem="Z4R-ZC-pWl" secondAttribute="leadingMargin" id="bcI-jr-kVX"/>
                             <constraint firstItem="vUK-Ls-b0f" firstAttribute="trailing" secondItem="Z4R-ZC-pWl" secondAttribute="trailingMargin" id="kES-qw-bh5"/>
-                            <constraint firstItem="T2d-nO-MoH" firstAttribute="top" secondItem="iaj-a0-vBE" secondAttribute="bottom" constant="64" id="pSM-YD-gqi"/>
+                            <constraint firstItem="T2d-nO-MoH" firstAttribute="top" secondItem="iaj-a0-vBE" secondAttribute="bottom" constant="8" id="pSM-YD-gqi"/>
                             <constraint firstItem="iaj-a0-vBE" firstAttribute="trailing" secondItem="Z4R-ZC-pWl" secondAttribute="trailingMargin" id="qvz-4u-85Z"/>
                             <constraint firstItem="1Rq-Fd-3j2" firstAttribute="trailing" secondItem="Z4R-ZC-pWl" secondAttribute="trailingMargin" id="uuf-EU-4CF"/>
                             <constraint firstItem="CfI-1Z-VyU" firstAttribute="trailing" secondItem="Z4R-ZC-pWl" secondAttribute="trailingMargin" id="xhH-2h-DUu"/>
@@ -200,19 +200,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="n3o-iX-Z4h">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="n3o-iX-Z4h">
                                 <rect key="frame" x="0.0" y="321" width="600" height="273"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aiy-XC-kVM">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="projectCell" rowHeight="55" id="aiy-XC-kVM" customClass="CustomProjectTableViewCell" customModule="Colab" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aiy-XC-kVM" id="LPt-Yq-JYx">
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPy-cN-3ku">
+                                                    <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="oPy-cN-3ku" firstAttribute="trailing" secondItem="LPt-Yq-JYx" secondAttribute="trailingMargin" id="0Ks-Kk-Jrx"/>
+                                                <constraint firstItem="oPy-cN-3ku" firstAttribute="leading" secondItem="LPt-Yq-JYx" secondAttribute="leadingMargin" id="8DW-e9-P6V"/>
+                                                <constraint firstItem="oPy-cN-3ku" firstAttribute="top" secondItem="LPt-Yq-JYx" secondAttribute="topMargin" id="tX9-fJ-Mib"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="_projectName" destination="oPy-cN-3ku" id="zOH-s7-RUl"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EuQ-hV-CYe" id="d3H-Qw-7Ti"/>
+                                    <outlet property="delegate" destination="EuQ-hV-CYe" id="glM-OI-HTt"/>
+                                </connections>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMe-om-xGg">
                                 <rect key="frame" x="16" y="152" width="568" height="125"/>
@@ -395,7 +414,7 @@
                                 </state>
                                 <connections>
                                     <action selector="submitButtonPressed:" destination="xGQ-Em-tZb" eventType="touchUpInside" id="2T8-19-NbY"/>
-                                    <segue destination="Spa-7A-IWE" kind="unwind" unwindAction="prepareForUnwind:" id="nRw-Tr-HCP"/>
+                                    <segue destination="Spa-7A-IWE" kind="unwind" unwindAction="unwindToProfile:" id="AyD-tb-i4i"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Collaborators: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiW-b0-lda">
@@ -433,7 +452,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Spa-7A-IWE" kind="unwind" unwindAction="prepareForUnwind:" id="av2-WQ-jKp"/>
+                                    <segue destination="Spa-7A-IWE" kind="unwind" unwindAction="unwindToProfile:" id="NOE-gf-QPD"/>
                                 </connections>
                             </button>
                         </subviews>
