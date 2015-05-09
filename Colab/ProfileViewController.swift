@@ -200,7 +200,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         UserController.getUsersProjects(curUsr!, callback: { (project) -> Void in
-            self.usrProjects = project
+            print(project)
+            
+            print("end")
+            
         })
         
         if(usrProjects == nil) {

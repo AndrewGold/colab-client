@@ -117,9 +117,8 @@ class AddProjectViewController: UIViewController {
     
     @IBAction func submitButtonPressed(sender: AnyObject) {
         
-        let project = Project();
+        let project = Project(title: _projectName.text);
         
-        project._title = _projectName.text;
         project._description = _projectDescription.text;
         project._owner = UserController.currentUser;
         project._users = collaborators;

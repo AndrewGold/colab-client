@@ -9,9 +9,14 @@
 class Project: NSObject {
     
     var _title:String!
-    var _description:String!
-    var _owner:String!
-    var _users:[String]!
+    var _description:String?
+    var _owner:String?
+    var _users:[String]?
+    
+    init(title:String!) {
+        _title = title
+        super.init()
+    }
     
     func serialize() -> [String:AnyObject] {
         
@@ -24,5 +29,17 @@ class Project: NSObject {
         
         return result
     }
+    
+    class func deserialize(project:NSDictionary) -> Project {
+        let proj = Project(title: project[Constants.projectKeys.title] as! String)
+        
+        proj._description = project[Constants.projectKeys.description] as? String
+        proj._owner = project[Constants.projectKeys.owner] as? String
+        proj._users = project[Constants.projectKeys.users] as? [String]
+        
+        return proj
+        
+    }
+
 
 }
