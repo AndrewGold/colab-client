@@ -59,13 +59,24 @@ class UserController: NSObject {
         }
     }
     
-    class func getUsersProjects(id: String!, callback: ([Project]?) -> Void) {
+    class func getUsersProjects(id: String!, callback: (NSArray) -> Void) {
         var parameters = [String:String]()
         parameters["user"] = id
         
         QueryManager.sharedInstance.POST(parameters, url: Constants.URLsuffix.getUsersProjects) { (responseObject) -> Void in
-            print(responseObject)
-            callback(nil)
+            
+            var projects = [Project]()
+            if let dict = responseObject as? NSDictionary {
+                if let projectArray = responseObject.valueForKey("project") as? NSArray {
+                    for (var i = 0; i < projectArray.count; i++) {
+                        var proj = Project.deserialize(projectArray[i] as! NSDictionary)
+                        projects += [proj]
+                    }
+                    
+                }
+            }
+            
+            callback(projects)
         }
     }
     
