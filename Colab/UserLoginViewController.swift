@@ -38,7 +38,6 @@ class UserLoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     @IBAction func submitButtonPressed(sender: AnyObject) {
         
@@ -49,12 +48,8 @@ class UserLoginViewController: UIViewController {
         } else {
             URLsuffix = Constants.URLsuffix.login
         }
-    
-        /* This line is for debugging*/
-        checkSignUpFields()
-        
-        /*Uncomment when working*/
-        //if (newUser == false || checkSignUpFields() == true) {
+
+        if (newUser == false || checkSignUpFields() == true) {
             QueryManager.sharedInstance.POST(["email": _userEmail.text, "password": _userPassword.text], url: URLsuffix) { (responseObject) -> Void in
                 print(responseObject)
                 if let status: AnyObject? = responseObject["status"] {
@@ -68,18 +63,12 @@ class UserLoginViewController: UIViewController {
                         self.segueToApp()
                     } else {
                         self.showAlert("Incorrect username or password. Please try again.")
-                        //
-                        //                     // TODO: take out only for testing
-                        //                     self.segueToApp()
                     }
                 } else {
                     self.showAlert("Network error. Please make sure you are connected to the internet and try again.")
-                    //
-                    //                 // TODO: take out only for testing
-                    //                 self.segueToApp()
                 }
             }
-        //}
+        }
     }
     
     func checkSignUpFields() -> Bool {
