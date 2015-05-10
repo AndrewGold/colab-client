@@ -65,9 +65,10 @@ class UserController: NSObject {
         
         QueryManager.sharedInstance.POST(parameters, url: Constants.URLsuffix.getUsersProjects) { (responseObject) -> Void in
             
+            print(responseObject)
             var projects = [Project]()
             if let dict = responseObject as? NSDictionary {
-                if let projectArray = responseObject.valueForKey("project") as? NSArray {
+                if let projectArray = responseObject.valueForKey("projects") as? NSArray {
                     for (var i = 0; i < projectArray.count; i++) {
                         var proj = Project.deserialize(projectArray[i] as! NSDictionary)
                         projects += [proj]
@@ -77,6 +78,17 @@ class UserController: NSObject {
             }
             
             callback(projects)
+        }
+    }
+    
+    class func getUsersForSkill(skill: String, callback: (NSArray) -> Void) {
+        var parameters = [String:String]()
+        parameters["skill"] = skill
+        
+        QueryManager.sharedInstance.POST(parameters, url: Constants.URLsuffix.getUsersForSkill) { (responseObject) -> Void in
+            
+            print(responseObject)
+            callback(responseObject["users"] as! NSArray)
         }
     }
     
