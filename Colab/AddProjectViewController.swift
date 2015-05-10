@@ -41,6 +41,9 @@ class AddProjectViewController: UIViewController, UITextViewDelegate {
         _projectDescription.text = "Project Description"
         _projectDescription.textColor = UIColor.lightGrayColor()
         
+        _projectDescription.layer.borderWidth = 1.0
+        _projectDescription.layer.borderColor = UIColor.grayColor().CGColor
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardNotification:", name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
     
@@ -156,6 +159,13 @@ class AddProjectViewController: UIViewController, UITextViewDelegate {
         if textView.textColor == UIColor.lightGrayColor() {
             textView.text = nil
             textView.textColor = UIColor.blackColor()
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if ((textView.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())) != nil) {
+            textView.text = "Project Description"
+            textView.textColor = UIColor.lightGrayColor()
         }
     }
     

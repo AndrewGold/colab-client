@@ -9,7 +9,7 @@
 import UIKit
 
 class EditProfileViewController: UIViewController {
-
+    
     @IBOutlet weak var _firstName: UITextField!
     @IBOutlet weak var _lastName: UITextField!
     @IBOutlet weak var _tagLine: UITextField!
@@ -41,9 +41,9 @@ class EditProfileViewController: UIViewController {
         let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Save, target: self, action: "saveInformation"  )
         
         self.navigationItem.rightBarButtonItem = saveButton
-
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,15 +57,23 @@ class EditProfileViewController: UIViewController {
         user._tagline = _tagLine.text
         user._description = _description.text
         
-        var params = [String:AnyObject]()
-        params["user"] = user.serialize()
-        
-        QueryManager.sharedInstance.POST(params, url: Constants.URLsuffix.updateUserInfo) { (responseObject) -> Void in
-            print(responseObject)
+        if(_lastName.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == "" ||
+            _firstName.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == "" ||
+            _tagLine.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == "" ||
+            _description.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == ""
+        ) {
+                self.showAlert("Please fill out all entries")
+        } else {
             
-            self.performSegueWithIdentifier("unwindToProfile", sender: self)
+            var params = [String:AnyObject]()
+            params["user"] = user.serialize()
+            
+            QueryManager.sharedInstance.POST(params, url: Constants.URLsuffix.updateUserInfo) { (responseObject) -> Void in
+                print(responseObject)
+                
+                self.performSegueWithIdentifier("unwindToProfile", sender: self)
+            }
         }
-        
     }
     
     @IBAction func unwindToProfile(segue:UIStoryboardSegue) {
@@ -78,15 +86,20 @@ class EditProfileViewController: UIViewController {
         _description.text = usrDescription!
         _tagLine.text = tagLine!
     }
-
+    
+    private func showAlert(message: String) {
+        var alert = UIAlertView(title: "Oops!", message: message, delegate: self, cancelButtonTitle: "Okay");
+        alert.show()
+    }
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
