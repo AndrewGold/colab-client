@@ -21,6 +21,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var _projectTable: UITableView!
     
+    @IBOutlet weak var addProjectButton: UIButton!
+    
     // Boolean - is this your profile or someone else's?
     internal var isSelf = false
     internal var firstTimeUser = true
@@ -45,6 +47,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if(isSelf) {
             curUsr = UserController.currentUser
+        } else {
+            addProjectButton.enabled = false
+            addProjectButton.hidden = true
         }
         
         UserController.getUser(curUsr, callback: { (user) -> Void in

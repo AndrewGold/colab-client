@@ -65,7 +65,6 @@ class UserController: NSObject {
         parameters["user"] = id
         
         QueryManager.sharedInstance.POST(parameters, url: Constants.URLsuffix.getUsersProjects) { (responseObject) -> Void in
-            print(responseObject as! NSDictionary)
             var projects = [Project]()
             
             if let dict = responseObject as? NSDictionary {
