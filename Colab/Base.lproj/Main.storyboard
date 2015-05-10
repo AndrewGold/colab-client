@@ -341,13 +341,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="tBt-cf-gSj">
-                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="igu-ww-VER">
-                            <connections>
-                                <segue destination="dIf-dE-sx6" kind="unwind" unwindAction="unwindToLogInView:" id="9Tj-GS-t7b"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="tBt-cf-gSj"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="_projectTable" destination="n3o-iX-Z4h" id="ful-dx-bex"/>
@@ -361,6 +355,7 @@
                         <outlet property="addProjectButton" destination="EUF-nP-95W" id="EnD-6f-nYi"/>
                         <segue destination="DGp-Kp-kbP" kind="show" identifier="setUpProfile" id="HUX-JQ-Jbg"/>
                         <segue destination="xGQ-Em-tZb" kind="presentation" identifier="presentAddProjectView" id="xus-V4-UfD"/>
+                        <segue destination="dIf-dE-sx6" kind="unwind" identifier="logoutSegue" unwindAction="unwindToLogInView:" id="L4t-IG-E3O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npw-u4-GY6" userLabel="First Responder" sceneMemberID="firstResponder"/>

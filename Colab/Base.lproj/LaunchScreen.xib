@@ -10,7 +10,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="colab_launch_image@3x.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zob-Iu-7gy">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="colab_launch_image.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zob-Iu-7gy">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
             </subviews>
@@ -27,6 +27,6 @@
         </view>
     </objects>
     <resources>
-        <image name="colab_launch_image@3x.png" width="360" height="640"/>
+        <image name="colab_launch_image.png" width="750" height="1334"/>
     </resources>
 </document>

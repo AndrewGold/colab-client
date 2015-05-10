@@ -20,6 +20,7 @@
 		D3C7C4911AB7637E00693A0F /* ColabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C7C4901AB7637E00693A0F /* ColabTests.swift */; };
 		D51DF6751AFFE9CC00AE0BC9 /* colab_app_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D51DF6711AFFE9CC00AE0BC9 /* colab_app_icon@2x.png */; };
 		D51DF6761AFFE9CC00AE0BC9 /* colab_app_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D51DF6721AFFE9CC00AE0BC9 /* colab_app_icon@3x.png */; };
+		D51DF6841AFFEFFE00AE0BC9 /* colab_launch_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D51DF6831AFFEFFE00AE0BC9 /* colab_launch_image.png */; };
 		D522EE211AE41F7500F13E45 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D522EE201AE41F7500F13E45 /* UserLoginViewController.swift */; };
 		D522EE261AE4312500F13E45 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = D522EE231AE4312500F13E45 /* Project.swift */; };
 		D522EE271AE4312500F13E45 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = D522EE241AE4312500F13E45 /* Skill.swift */; };
@@ -65,6 +66,7 @@
 		D3C7C4901AB7637E00693A0F /* ColabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColabTests.swift; sourceTree = "<group>"; };
 		D51DF6711AFFE9CC00AE0BC9 /* colab_app_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colab_app_icon@2x.png"; sourceTree = "<group>"; };
 		D51DF6721AFFE9CC00AE0BC9 /* colab_app_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colab_app_icon@3x.png"; sourceTree = "<group>"; };
+		D51DF6831AFFEFFE00AE0BC9 /* colab_launch_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colab_launch_image.png; sourceTree = "<group>"; };
 		D522EE201AE41F7500F13E45 /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
 		D522EE231AE4312500F13E45 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		D522EE241AE4312500F13E45 /* Skill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		D51DF66E1AFFE9B600AE0BC9 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				D51DF6831AFFEFFE00AE0BC9 /* colab_launch_image.png */,
 				D51DF6711AFFE9CC00AE0BC9 /* colab_app_icon@2x.png */,
 				D51DF6721AFFE9CC00AE0BC9 /* colab_app_icon@3x.png */,
 			);
@@ -339,6 +342,7 @@
 				D51DF6761AFFE9CC00AE0BC9 /* colab_app_icon@3x.png in Resources */,
 				D5752F051AB7681C007E5926 /* placeholder.png in Resources */,
 				D3C7C4851AB7637D00693A0F /* LaunchScreen.xib in Resources */,
+				D51DF6841AFFEFFE00AE0BC9 /* colab_launch_image.png in Resources */,
 				D3C7C4821AB7637D00693A0F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

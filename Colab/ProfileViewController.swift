@@ -68,6 +68,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(animated: Bool) {
         if(isSelf) {
             curUsr = UserController.currentUser
+            
+            let logoutButton = UIBarButtonItem(title: "Log Out", style: UIBarButtonItemStyle.Plain, target: self, action: "logOutUser")
+            
+            self.navigationItem.leftBarButtonItem = logoutButton
         }
         
         UserController.getUser(curUsr, callback: { (user) -> Void in
@@ -233,6 +237,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         return cell
+    }
+    
+    func logOutUser() {
+        performSegueWithIdentifier("logoutSegue", sender: self)
     }
 
 
