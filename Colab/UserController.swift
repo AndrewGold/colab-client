@@ -81,6 +81,17 @@ class UserController: NSObject {
         }
     }
     
+    class func getUsersForSkill(skill: String, callback: (NSArray) -> Void) {
+        var parameters = [String:String]()
+        parameters["skill"] = skill
+        
+        QueryManager.sharedInstance.POST(parameters, url: Constants.URLsuffix.getUsersForSkill) { (responseObject) -> Void in
+            
+            print(responseObject)
+            callback(responseObject["users"] as! NSArray)
+        }
+    }
+    
     class func storeLoginInformation(email: String, id: String) {
         
         let defaults = NSUserDefaults.standardUserDefaults()
