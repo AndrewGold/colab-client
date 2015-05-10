@@ -43,7 +43,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        _projectTable.contentInset = UIEdgeInsetsZero
         
         if(isSelf) {
             curUsr = UserController.currentUser

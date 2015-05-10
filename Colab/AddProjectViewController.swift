@@ -8,11 +8,12 @@
 
 import UIKit
 
-class AddProjectViewController: UIViewController {
+class AddProjectViewController: UIViewController, UITextViewDelegate {
     // Outlets
     @IBOutlet weak var _projectName: UITextField!
-    @IBOutlet weak var _projectDescription: UITextField!
+    @IBOutlet weak var _projectDescription: UITextView!
     
+    @IBOutlet weak var _bottomConstraint: NSLayoutConstraint!
    
     @IBOutlet weak var _projectSkill1: UILabel!
     @IBOutlet weak var _projectSkill2: UILabel!
@@ -33,6 +34,15 @@ class AddProjectViewController: UIViewController {
     var collaborators = [String]();
     
     var skillIndex = 1;
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        _projectDescription.text = "Project Description"
+        _projectDescription.textColor = UIColor.lightGrayColor()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardNotification:", name: UIKeyboardWillChangeFrameNotification, object: nil)
+    }
     
     @IBAction func AddNewSkill(sender: UIButton) {
         if (_projectAddNewSkill.hasText()) {
@@ -138,6 +148,31 @@ class AddProjectViewController: UIViewController {
     
     @IBAction func prepareForUnwind(segue:UIStoryboardSegue) {
         print("unwind")
+    }
+    
+    // MARK: - TextView Delegate
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.textColor == UIColor.lightGrayColor() {
+            textView.text = nil
+            textView.textColor = UIColor.blackColor()
+        }
+    }
+    
+    func keyboardNotification(notif:NSNotification) {
+        if let userInfo = notif.userInfo {
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue()
+            let duration:NSTimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.unsignedLongValue ?? UIViewAnimationOptions.CurveEaseInOut.rawValue
+            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            self._bottomConstraint?.constant = endFrame?.size.height ?? 0.0
+            UIView.animateWithDuration(duration,
+                delay: NSTimeInterval(0),
+                options: animationCurve,
+                animations: { self.view.layoutIfNeeded() },
+                completion: nil)
+        }
     }
     
 };
