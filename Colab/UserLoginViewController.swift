@@ -49,7 +49,7 @@ class UserLoginViewController: UIViewController {
             URLsuffix = Constants.URLsuffix.login
         }
 
-        if (newUser == false || checkSignUpFields() == true) {
+        //if (newUser == false || checkSignUpFields() == true) {
             QueryManager.sharedInstance.POST(["email": _userEmail.text, "password": _userPassword.text], url: URLsuffix) { (responseObject) -> Void in
                 print(responseObject)
                 if let status: AnyObject? = responseObject["status"] {
@@ -68,7 +68,7 @@ class UserLoginViewController: UIViewController {
                     self.showAlert("Network error. Please make sure you are connected to the internet and try again.")
                 }
             }
-        }
+        //}
     }
     
     func checkSignUpFields() -> Bool {
