@@ -16,7 +16,17 @@ class SearchHelper: NSObject {
             return allUsers
         }
         
-        let rtrnUsers = allUsers.filter( { $0._fullName!.lowercaseString.rangeOfString(searchTerm.lowercaseString) != nil } )
+        var rtrnUsers:[User] = []
+        
+        for usr in allUsers {
+            let containsName = usr._fullName!.lowercaseString.rangeOfString(searchTerm.lowercaseString) != nil
+            let containsSkill = usr._skills?.filter( { $0._title.lowercaseString == searchTerm.lowercaseString} ).count > 0
+            
+            if (containsName || containsSkill) {
+                rtrnUsers += [usr]
+            }
+        }
+        
         return rtrnUsers
  
     }

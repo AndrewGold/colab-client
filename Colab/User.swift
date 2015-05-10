@@ -48,6 +48,8 @@ class User: NSObject {
     }
     
     class func deserialize(user:NSDictionary) -> User {
+        print(user)
+        
         let usr = User(id: user[Constants.userKeys.ID] as! String)
     
         usr._email = user[Constants.userKeys.email] as? String
@@ -60,6 +62,9 @@ class User: NSObject {
         usr._tagline = user[Constants.userKeys.tagline] as? String
         
         usr._fullName = usr._firstName! + " " + usr._lastName!
+        
+        let skills = user[Constants.userKeys.skills] as? NSArray
+        usr._skills = (user[Constants.userKeys.skills] as? NSArray) as? [Skill]
         
         return usr
     

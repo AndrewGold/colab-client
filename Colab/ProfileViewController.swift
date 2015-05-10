@@ -113,26 +113,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-    func loadUserFromCell(cell: CustomUserTableViewCell) {
-        userImage = cell._userImage.image
-        userName = cell._userName.text!
-        userTagLine = cell._userTagline.text!
-        
-        if cell._userSkill1.text != nil {
-            userSkill1 = cell._userSkill1.text!
-        }
-        
-        if cell._userSkill2.text != nil {
-            userSkill2 = cell._userSkill2.text!
-        }
-        
-        if cell._userSkill3.text != nil {
-            userSkill3 = cell._userSkill3.text!
-        }
-        
-        updateProfileFields()
-    }
-    
     func editProfile() {
         var editButton:UIBarButtonItem?
         

@@ -10,5 +10,6 @@ class Skill: NSObject {
     
     var _title:String!
     var _users:[User]!
-
+    
+    
 }

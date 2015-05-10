@@ -14,7 +14,7 @@ class AddProjectViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var _projectDescription: UITextView!
     
     @IBOutlet weak var _bottomConstraint: NSLayoutConstraint!
-   
+    
     @IBOutlet weak var _projectSkill1: UILabel!
     @IBOutlet weak var _projectSkill2: UILabel!
     @IBOutlet weak var _projectSkill3: UILabel!
@@ -44,7 +44,6 @@ class AddProjectViewController: UIViewController, UITextViewDelegate {
         _projectDescription.layer.borderWidth = 1.0
         _projectDescription.layer.borderColor = UIColor.grayColor().CGColor
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardNotification:", name: UIKeyboardWillChangeFrameNotification, object: nil)
     }
     
     @IBAction func AddNewSkill(sender: UIButton) {
@@ -130,22 +129,32 @@ class AddProjectViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func submitButtonPressed(sender: AnyObject) {
         
-        let project = Project(title: _projectName.text);
-        
-        project._description = _projectDescription.text;
-        project._owner = UserController.currentUser;
-        project._users = collaborators;
-        
-        var params = [String:AnyObject]()
-        params["project"] = project.serialize()
-        params["user"] = UserController.currentUser
-        params["skills"] = skills
-        
-        QueryManager.sharedInstance.POST(params, url: Constants.URLsuffix.addProject) {
-            (responseObject) -> Void in
+        if( _projectName.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == "" ||
+            _projectDescription.text.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == "" ||
+            _projectSkill1.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) == ""
+            ) {
+                self.showAlert("Please enter a title, description, and at least one skill!")
+        } else {
             
-            let notification = NSNotification(name: Constants.notifications.kNewProjectNotification, object: project, userInfo: nil)
-            NSNotificationCenter.defaultCenter().postNotification(notification)
+            let project = Project(title: _projectName.text);
+            
+            project._description = _projectDescription.text;
+            project._owner = UserController.currentUser;
+            project._users = collaborators;
+            
+            var params = [String:AnyObject]()
+            params["project"] = project.serialize()
+            params["user"] = UserController.currentUser
+            params["skills"] = skills
+            
+            QueryManager.sharedInstance.POST(params, url: Constants.URLsuffix.addProject) {
+                (responseObject) -> Void in
+                
+                let notification = NSNotification(name: Constants.notifications.kNewProjectNotification, object: project, userInfo: nil)
+                NSNotificationCenter.defaultCenter().postNotification(notification)
+                
+                self.performSegueWithIdentifier("unwindToProfile", sender: self)
+            }
         }
     }
     
@@ -163,26 +172,15 @@ class AddProjectViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidEndEditing(textView: UITextView) {
-        if ((textView.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())) != nil) {
+        if ((textView.text?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())) == "") {
             textView.text = "Project Description"
             textView.textColor = UIColor.lightGrayColor()
         }
     }
     
-    func keyboardNotification(notif:NSNotification) {
-        if let userInfo = notif.userInfo {
-            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue()
-            let duration:NSTimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
-            let animationCurveRaw = animationCurveRawNSN?.unsignedLongValue ?? UIViewAnimationOptions.CurveEaseInOut.rawValue
-            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
-            self._bottomConstraint?.constant = endFrame?.size.height ?? 0.0
-            UIView.animateWithDuration(duration,
-                delay: NSTimeInterval(0),
-                options: animationCurve,
-                animations: { self.view.layoutIfNeeded() },
-                completion: nil)
-        }
+    private func showAlert(message: String) {
+        var alert = UIAlertView(title: "Oops!", message: message, delegate: self, cancelButtonTitle: "Okay");
+        alert.show()
     }
     
 };
