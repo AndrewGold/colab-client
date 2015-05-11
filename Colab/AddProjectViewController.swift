@@ -42,7 +42,7 @@ class AddProjectViewController: UIViewController, UITextViewDelegate {
         _projectDescription.textColor = UIColor.lightGrayColor()
         
         _projectDescription.layer.borderWidth = 1.0
-        _projectDescription.layer.borderColor = UIColor.grayColor().CGColor
+        _projectDescription.layer.borderColor = UIColor.lightGrayColor().CGColor
         
     }
     
