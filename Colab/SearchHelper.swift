@@ -21,8 +21,9 @@ class SearchHelper: NSObject {
         for usr in allUsers {
             let containsName = usr._fullName!.lowercaseString.rangeOfString(searchTerm.lowercaseString) != nil
             let containsSkill = usr._skills?.filter( { $0._title.lowercaseString == searchTerm.lowercaseString} ).count > 0
+            let isSelf = usr._id == UserController.currentUser
             
-            if (containsName || containsSkill) {
+            if ((containsName || containsSkill) && !isSelf) {
                 rtrnUsers += [usr]
             }
         }
