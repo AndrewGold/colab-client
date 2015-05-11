@@ -11,11 +11,6 @@ import UIKit
 class SearchHelper: NSObject {
     
     func returnSearchResults(searchTerm:String!, allUsers:[User]) -> [User]{
-        
-        if searchTerm == "" {
-            return allUsers
-        }
-        
         var rtrnUsers:[User] = []
         
         for usr in allUsers {
@@ -23,7 +18,7 @@ class SearchHelper: NSObject {
             let containsSkill = usr._skills?.filter( { $0._title.lowercaseString == searchTerm.lowercaseString} ).count > 0
             let isSelf = usr._id == UserController.currentUser
             
-            if ((containsName || containsSkill) && !isSelf) {
+            if ((containsName || containsSkill || searchTerm == "") && !isSelf) {
                 rtrnUsers += [usr]
             }
         }
