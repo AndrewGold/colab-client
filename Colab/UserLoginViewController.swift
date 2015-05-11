@@ -48,27 +48,28 @@ class UserLoginViewController: UIViewController {
         } else {
             URLsuffix = Constants.URLsuffix.login
         }
-
-        //if (newUser == false || checkSignUpFields() == true) {
-            QueryManager.sharedInstance.POST(["email": _userEmail.text, "password": _userPassword.text], url: URLsuffix) { (responseObject) -> Void in
-                print(responseObject)
-                if let status: AnyObject? = responseObject["status"] {
-                    if (self._userEmail.text == "" || self._userEmail.text == nil ||
-                        self._userPassword.text == "" || self._userPassword.text == nil) {
-                            self.showAlert("Incorrect username or password. Please try again.")
-                    } else if (Int(status as! NSNumber) == 0) {
-                        UserController.setUserID(responseObject["userId"] as! String)
-                        UserController.storeLoginInformation(self._userEmail.text, id: responseObject["userId"] as! String)
-                        
-                        self.segueToApp()
-                    } else {
-                        self.showAlert("Incorrect username or password. Please try again.")
-                    }
-                } else {
-                    self.showAlert("Network error. Please make sure you are connected to the internet and try again.")
+        
+        QueryManager.sharedInstance.POST(["email": _userEmail.text, "password": _userPassword.text], url: URLsuffix) { (responseObject) -> Void in
+            print(responseObject)
+            if let status: AnyObject? = responseObject["status"] {
+                if (self.newUser == true && self.checkSignUpFields() == false) {
+                    // Specific error message printed in the checkSignUpField function.
                 }
+                else if (self._userEmail.text == "" || self._userEmail.text == nil ||
+                    self._userPassword.text == "" || self._userPassword.text == nil) {
+                        self.showAlert("Incorrect username or password. Please try again.")
+                } else if (Int(status as! NSNumber) == 0) {
+                    UserController.setUserID(responseObject["userId"] as! String)
+                    UserController.storeLoginInformation(self._userEmail.text, id: responseObject["userId"] as! String)
+                    
+                    self.segueToApp()
+                } else {
+                    self.showAlert("Incorrect username or password. Please try again.")
+                }
+            } else {
+                self.showAlert("Network error. Please make sure you are connected to the internet and try again.")
             }
-        //}
+        }
     }
     
     func checkSignUpFields() -> Bool {
@@ -122,8 +123,6 @@ class UserLoginViewController: UIViewController {
             _newUserButton.setTitle("Returning user? Sign In!", forState: UIControlState.Normal)
         }
     }
-    
-    
     
     // MARK: - Navigation
     private func segueToApp() {
