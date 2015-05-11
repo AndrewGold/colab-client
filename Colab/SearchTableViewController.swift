@@ -47,7 +47,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -76,6 +76,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
         cell.setUpCell(curUser)
         
         return cell
+        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -122,7 +123,7 @@ class SearchTableViewController: UIViewController, UITableViewDelegate, UITableV
     // Return false if you do not wish to highlight cells
     // TODO: turn off highlighting when done testing
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-       performSegueWithIdentifier("showProfileSegue", sender: tableView.cellForRowAtIndexPath(indexPath))
+        performSegueWithIdentifier("showProfileSegue", sender: tableView.cellForRowAtIndexPath(indexPath))
         dismissKeyboard()
         // TODO: Turn to false when done testing
         return false

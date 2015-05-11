@@ -63,8 +63,18 @@ class User: NSObject {
         
         usr._fullName = usr._firstName! + " " + usr._lastName!
         
-        let skills = user[Constants.userKeys.skills] as? NSArray
-        usr._skills = (user[Constants.userKeys.skills] as? NSArray) as? [Skill]
+        var skillArr:[Skill] = []
+        
+        if let skills = user[Constants.userKeys.skills] as? [String] {
+            for skill in skills {
+                let thisSkill = Skill()
+                thisSkill._title = skill
+                skillArr += [thisSkill]
+            }
+        }
+    
+        
+        usr._skills = skillArr
         
         return usr
     

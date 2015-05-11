@@ -15,7 +15,8 @@ class SkillController: NSObject {
         
         QueryManager.sharedInstance.POST(parameters, url: Constants.URLsuffix.getSkill) { (responseObject) -> Void in
             var skill = responseObject["skill"] as! NSDictionary
-            callback(skill["title"] as! String)
+            let str = skill["title"] as! String
+            callback(str)
         }
     }
 

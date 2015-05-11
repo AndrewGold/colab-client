@@ -9,12 +9,10 @@
 import UIKit
 
 class CustomUserTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var _userImage: UIImageView!
     @IBOutlet weak var _userName: UILabel!
     @IBOutlet weak var _userTagline: UILabel!
-    @IBOutlet weak var _userScore: UILabel!
-
     
     @IBOutlet weak var _userSkill1: UILabel!
     @IBOutlet weak var _userSkill2: UILabel!
@@ -27,10 +25,10 @@ class CustomUserTableViewCell: UITableViewCell {
         // Initialization code
         
     }
-
+    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
         
     }
@@ -41,13 +39,9 @@ class CustomUserTableViewCell: UITableViewCell {
         _userImage.image = UIImage(named: "placeholder.png")
         _userName.text = usr._firstName! + " " + usr._lastName!
         _userTagline.text = usr._tagline!
-        _userScore.text = "99"
         
-        _userSkill1.text = "default"
-        _userSkill2.text = "default"
-        _userSkill3.text = "default"
         
         _userId = usr._id
     }
-
+    
 }

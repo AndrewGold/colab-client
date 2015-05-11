@@ -57,12 +57,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         })
         
         
-        
         if(userImage != nil) {
             _userImage.image = userImage!
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "newProjectAdded:", name:Constants.notifications.kNewProjectNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "skillsFinished:", name:Constants.notifications.kNewProjectNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -95,6 +96,31 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         userName = firstName + " " + lastName
         userTagLine = usr._tagline!
         userDescription = usr._description!
+        
+        let maxIndex = min(3, usr._skills!.count)
+        var curSkillIndex = 0
+        for(var i = 0; i < maxIndex; i++) {
+            SkillController.getSkill(usr._skills![i]._title, callback: { (skillName) -> Void in
+                if (curSkillIndex == 0) {
+                    self.userSkill1 = skillName
+                    self._userSkill1.text = skillName
+                    self._userSkill1.hidden = false
+                    curSkillIndex++
+                } else if (curSkillIndex == 1) {
+                    self.userSkill2 = skillName
+                    self._userSkill2.text = skillName
+                    self._userSkill2.hidden = false
+                    curSkillIndex++
+                } else {
+                    self.userSkill3 = skillName
+                    self._userSkill3.text = skillName
+                    self._userSkill3.hidden = false
+                    curSkillIndex = 0
+                }
+            })
+
+        }
+        
     }
     
     func updateProfileFields() {
@@ -186,6 +212,16 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     dynamic private func newProjectAdded(notification: NSNotification){
+        //Action take on Notification
+        UserController.getUsersProjects(curUsr!, callback: { (project) -> Void in
+            print(project)
+            
+            self.usrProjects = project as? [Project]
+            self._projectTable.reloadData()
+        })
+    }
+    
+    dynamic private func skillsFinished(notification: NSNotification){
         //Action take on Notification
         UserController.getUsersProjects(curUsr!, callback: { (project) -> Void in
             print(project)
