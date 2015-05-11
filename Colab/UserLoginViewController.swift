@@ -33,12 +33,12 @@ class UserLoginViewController: UIViewController {
             updateView()
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func submitButtonPressed(sender: AnyObject) {
         
         var URLsuffix:String!
@@ -49,30 +49,30 @@ class UserLoginViewController: UIViewController {
             URLsuffix = Constants.URLsuffix.login
         }
         
-        QueryManager.sharedInstance.POST(["email": _userEmail.text, "password": _userPassword.text], url: URLsuffix) { (responseObject) -> Void in
-            print(responseObject)
-            if let status: AnyObject? = responseObject["status"] {
-                if (self.newUser == true && self.checkSignUpFields() == false) {
-                    // Specific error message printed in the checkSignUpField function.
-                }
-                else if (self._userEmail.text == "" || self._userEmail.text == nil ||
-                    self._userPassword.text == "" || self._userPassword.text == nil) {
+        if(checkSignUpFields()) {
+            _submitButton.enabled = false
+            
+            QueryManager.sharedInstance.POST(["email": _userEmail.text, "password": _userPassword.text], url: URLsuffix) { (responseObject) -> Void in
+                print(responseObject)
+                if let status: AnyObject? = responseObject["status"] {
+                    if (Int(status as! NSNumber) == 0) {
+                        UserController.setUserID(responseObject["userId"] as! String)
+                        UserController.storeLoginInformation(self._userEmail.text, id: responseObject["userId"] as! String)
+                        
+                        self.segueToApp()
+                    } else {
                         self.showAlert("Incorrect username or password. Please try again.")
-                } else if (Int(status as! NSNumber) == 0) {
-                    UserController.setUserID(responseObject["userId"] as! String)
-                    UserController.storeLoginInformation(self._userEmail.text, id: responseObject["userId"] as! String)
-                    
-                    self.segueToApp()
+                        self._submitButton.enabled = true
+                    }
                 } else {
-                    self.showAlert("Incorrect username or password. Please try again.")
+                    self.showAlert("Network error. Please make sure you are connected to the internet and try again.")
                 }
-            } else {
-                self.showAlert("Network error. Please make sure you are connected to the internet and try again.")
             }
         }
     }
     
     func checkSignUpFields() -> Bool {
+        if(newUser) {
         if (_userEmail.text == "" || _userEmail.text == nil) {
             self.showAlert("Please enter a valid email.")
             _userEmail.text = ""
@@ -100,6 +100,12 @@ class UserLoginViewController: UIViewController {
             _userPassword.text = ""
             _userConfirmPassword.text = ""
             return false
+        }
+        } else {
+            if (self._userEmail.text == "" || self._userEmail.text == nil ||
+                self._userPassword.text == "" || self._userPassword.text == nil) {
+                    self.showAlert("Incorrect username or password. Please try again.")
+            }
         }
         
         return true
@@ -136,6 +142,7 @@ class UserLoginViewController: UIViewController {
     
     func unwindToLogInView(segue:UIStoryboardSegue) {
         UserController.logOutUser()
+        _submitButton.enabled = true
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -155,5 +162,5 @@ class UserLoginViewController: UIViewController {
         }
         
     }
-
+    
 }

@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Friends-->
+        <!--Search-->
         <scene sceneID="LDM-qL-yky">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="drE-Vl-tAI" customClass="SearchTableViewController" customModule="Colab" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,13 +36,13 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tagline goes here..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVL-rl-zrZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Tagline goes here..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVL-rl-zrZ">
                                                     <rect key="frame" x="76" y="23" width="149" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.55691682450000002" green="0.55691682450000002" blue="0.55691682450000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Matthew Fishkin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMz-zw-o5u">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Matthew Fishkin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMz-zw-o5u">
                                                     <rect key="frame" x="76" y="8" width="126" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,8 +77,16 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="qiy-Xh-hl3" firstAttribute="top" secondItem="OVL-rl-zrZ" secondAttribute="bottom" constant="6" id="82Q-X9-juW"/>
                                                 <constraint firstItem="wmY-C6-GoB" firstAttribute="top" secondItem="Eo9-aW-QLI" secondAttribute="topMargin" constant="-1" id="EiR-QR-Oqp"/>
+                                                <constraint firstItem="Nt6-Dx-KSr" firstAttribute="leading" secondItem="8hs-dP-Dbz" secondAttribute="trailing" constant="4" id="P87-PO-alV"/>
+                                                <constraint firstItem="qiy-Xh-hl3" firstAttribute="leading" secondItem="wmY-C6-GoB" secondAttribute="trailing" constant="8" id="RGy-pW-Qse"/>
                                                 <constraint firstItem="wmY-C6-GoB" firstAttribute="leading" secondItem="Eo9-aW-QLI" secondAttribute="leadingMargin" id="XVO-MQ-ysj"/>
+                                                <constraint firstItem="Nt6-Dx-KSr" firstAttribute="top" secondItem="OVL-rl-zrZ" secondAttribute="bottom" constant="6" id="ZLH-EL-W9K"/>
+                                                <constraint firstItem="8hs-dP-Dbz" firstAttribute="top" secondItem="OVL-rl-zrZ" secondAttribute="bottom" constant="6" id="qwb-Av-Kdp"/>
+                                                <constraint firstItem="yMz-zw-o5u" firstAttribute="leading" secondItem="wmY-C6-GoB" secondAttribute="trailing" constant="8" id="s3b-Zb-3g8"/>
+                                                <constraint firstItem="OVL-rl-zrZ" firstAttribute="leading" secondItem="wmY-C6-GoB" secondAttribute="trailing" constant="8" id="tHl-dM-z4W"/>
+                                                <constraint firstItem="8hs-dP-Dbz" firstAttribute="leading" secondItem="qiy-Xh-hl3" secondAttribute="trailing" constant="4" id="xH1-q4-fmd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -106,7 +114,7 @@
                             <constraint firstItem="p9c-4Z-tEN" firstAttribute="top" secondItem="4Wo-6u-WlM" secondAttribute="bottom" id="j74-VV-KbR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Friends" id="Ls7-kz-jxC"/>
+                    <navigationItem key="navigationItem" title="Search" id="Ls7-kz-jxC"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="_tableView" destination="4Wo-6u-WlM" id="X6z-Cv-XFa"/>

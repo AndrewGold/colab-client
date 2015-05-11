@@ -40,6 +40,25 @@ class CustomUserTableViewCell: UITableViewCell {
         _userName.text = usr._firstName! + " " + usr._lastName!
         _userTagline.text = usr._tagline!
         
+        let maxIndex = min(3, usr._skills!.count)
+        var curSkillIndex = 0
+        for(var i = 0; i < maxIndex; i++) {
+            SkillController.getSkill(usr._skills![i]._title, callback: { (skillName) -> Void in
+                if (curSkillIndex == 0) {
+                    self._userSkill1.text = skillName
+                    self._userSkill1.hidden = false
+                    curSkillIndex++
+                } else if (curSkillIndex == 1) {
+                    self._userSkill2.text = skillName
+                    self._userSkill2.hidden = false
+                    curSkillIndex++
+                } else {
+                    self._userSkill3.text = skillName
+                    self._userSkill3.hidden = false
+                    curSkillIndex = 0
+                }
+            })
+        }
         
         _userId = usr._id
     }
